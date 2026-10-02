@@ -1,5 +1,9 @@
 # SUPER ACE Website Project Rules
 
+## GitHub
+
+- Keep this `AGENTS.md` file local; do not push it to GitHub.
+
 ## Stack
 
 - Vite, React 18, and TypeScript.
