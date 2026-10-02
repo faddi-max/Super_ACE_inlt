@@ -16,6 +16,21 @@
   --color-neon-green: #39ff14;
   --color-speed-red: #ff2d2d;
   --color-neon-orange: #ff7a00;
+  --color-shade: #070c16;
+
+  --background-image-hero-shade:
+    radial-gradient(
+      47% 55% at 50% 50%,
+      color-mix(in srgb, var(--color-shade) 58%, transparent) 0%,
+      color-mix(in srgb, var(--color-shade) 10%, transparent) 78%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-shade) 72%, transparent) 0%,
+      transparent 24%,
+      transparent 72%,
+      color-mix(in srgb, var(--color-shade) 74%, transparent) 100%
+    );
 
   --font-display: "Barlow Condensed", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
