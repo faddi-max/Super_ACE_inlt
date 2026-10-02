@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 52">
+  <path fill="var(--color-electric)" d="M7 5h36L25 20h16L7 47l9-18H4L23 5H7Z" />
+  <text x="52" y="38" fill="var(--color-white)" font-family="Barlow Condensed, sans-serif" font-size="35" font-weight="800">SUPER ACE</text>
+</svg>

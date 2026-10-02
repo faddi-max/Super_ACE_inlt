@@ -1,0 +1,1 @@
+Place approved SUPER ACE photography and other production image assets in this directory.

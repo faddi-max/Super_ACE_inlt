@@ -1,0 +1,97 @@
+@import "@fontsource/barlow-condensed/700.css";
+@import "@fontsource/barlow-condensed/800.css";
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+@import "@fontsource/montserrat/800.css";
+@import "tailwindcss";
+@import "../components/animation/motion.css";
+
+@theme {
+  --color-navy: #0b0f1a;
+  --color-electric: #1e90ff;
+  --color-white: #ffffff;
+  --color-slate: #2a2f3a;
+  --color-silver: #e6e6e6;
+  --color-neon-green: #39ff14;
+  --color-speed-red: #ff2d2d;
+  --color-neon-orange: #ff7a00;
+
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-sans: "Montserrat", sans-serif;
+
+  --text-hero: clamp(4.5rem, 8vw, 6rem);
+  --text-hero--line-height: 0.8;
+  --text-hero--letter-spacing: -0.02em;
+  --text-eyebrow: 0.5625rem;
+  --text-eyebrow--line-height: 0.8125rem;
+  --text-eyebrow--letter-spacing: 0.22em;
+  --text-h1: clamp(3rem, 5.8vw, 4.375rem);
+  --text-h1--line-height: 0.843;
+  --text-h2: clamp(2.25rem, 3.7vw, 2.75rem);
+  --text-h2--line-height: 0.886;
+  --text-h3: clamp(1.375rem, 2vw, 1.4375rem);
+  --text-h3--line-height: 1.304;
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.2;
+  --text-lead: 0.9375rem;
+  --text-lead--line-height: 1.7;
+  --text-body: 0.875rem;
+  --text-body--line-height: 1.7;
+  --text-small: 0.6875rem;
+  --text-small--line-height: 1.636;
+  --text-caption: 0.5625rem;
+  --text-caption--line-height: 1.5;
+  --text-nav: 0.625rem;
+  --text-nav--line-height: 1;
+  --text-button: 0.625rem;
+  --text-button--line-height: 1;
+  --text-button--letter-spacing: 0.07em;
+  --text-ui-label: 0.5rem;
+  --text-ui-label--line-height: 1;
+  --text-ui-label--letter-spacing: 0.16em;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--color-white);
+    color: var(--color-navy);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+  }
+
+  ::selection {
+    background: var(--color-electric);
+    color: var(--color-white);
+  }
+}
