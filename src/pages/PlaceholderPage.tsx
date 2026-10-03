@@ -16,7 +16,7 @@ export function PlaceholderPage({ page }: PlaceholderPageProps) {
         <Reveal className="max-w-4xl space-y-5">
           <Eyebrow>{page.eyebrow}</Eyebrow>
           <Heading as="h1">{page.title}</Heading>
-          <p className="max-w-xl text-lead text-silver">{page.description}</p>
+          <p className="max-w-xl text-lead text-slate">{page.description}</p>
         </Reveal>
       </Section>
     </PageLayout>

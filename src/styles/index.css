@@ -1,3 +1,4 @@
+@import "@fontsource/barlow-condensed/500.css";
 @import "@fontsource/barlow-condensed/700.css";
 @import "@fontsource/barlow-condensed/800.css";
 @import "@fontsource/montserrat/400.css";
@@ -9,14 +10,88 @@
 
 @theme {
   --color-navy: #0b0f1a;
+  --color-panel: #101621;
+  --color-card-start: #151c28;
+  --color-card-end: #0e131d;
   --color-electric: #1e90ff;
   --color-white: #ffffff;
   --color-slate: #2a2f3a;
   --color-silver: #e6e6e6;
+  --color-testimonial-quote: #d9e0e8;
+  --color-muted-label: #a1a9b3;
   --color-neon-green: #39ff14;
   --color-speed-red: #ff2d2d;
   --color-neon-orange: #ff7a00;
   --color-shade: #070c16;
+
+  --background-image-certification-card: linear-gradient(
+    180deg,
+    var(--color-card-start) 0%,
+    var(--color-card-end) 100%
+  );
+
+  --background-image-accent-fade: linear-gradient(
+    90deg,
+    var(--color-electric) 0%,
+    transparent 75%
+  );
+
+  --background-image-testimonial-strip: radial-gradient(
+    54.37% 54.37% at 51.16% 45.63%,
+    color-mix(in srgb, var(--color-electric) 7.92%, transparent) 61%,
+    transparent 96%
+  );
+
+  --background-image-testimonials-glow:
+    radial-gradient(
+      38% 32% at 8% 10%,
+      color-mix(in srgb, var(--color-electric) 6%, transparent) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      42% 28% at 82% 48%,
+      color-mix(in srgb, var(--color-electric) 6%, transparent) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      30% 26% at 92% 96%,
+      color-mix(in srgb, var(--color-electric) 5%, transparent) 0%,
+      transparent 100%
+    );
+
+  --background-image-faq-glow:
+    radial-gradient(
+      55% 70% at 82% 38%,
+      color-mix(in srgb, var(--color-electric) 9%, transparent) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      30% 40% at 0% 0%,
+      color-mix(in srgb, var(--color-electric) 4%, transparent) 0%,
+      transparent 100%
+    );
+
+  --shadow-button: 0 1px 4px 0
+    color-mix(in srgb, var(--color-navy) 61%, transparent);
+
+  --background-image-category-overlay: linear-gradient(
+    0deg,
+    color-mix(in srgb, var(--color-navy) 58%, transparent) 0%,
+    color-mix(in srgb, var(--color-navy) 8%, transparent) 43%,
+    transparent 70%
+  );
+
+  --background-image-manufacture-glow:
+    radial-gradient(
+      40% 55% at 100% 0%,
+      color-mix(in srgb, var(--color-electric) 14%, transparent) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      45% 40% at 0% 100%,
+      color-mix(in srgb, var(--color-electric) 8%, transparent) 0%,
+      transparent 100%
+    );
 
   --background-image-hero-shade:
     radial-gradient(
