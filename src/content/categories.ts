@@ -23,16 +23,22 @@ export const categoriesContent = {
       title: "Fitness & Training",
       to: "/categories/fitness",
       image: images.fitness,
+      description:
+        "Training apparel engineered for movement, comfort and durability.",
     },
     {
       title: "Sports Apparel",
       to: "/categories/sportswear",
       image: images["sports-apparel"],
+      description:
+        "Versatile sportswear built for fit, style and everyday performance.",
     },
     {
       title: "Combat Sports",
       to: "/categories/combat",
       image: images.combat,
+      description:
+        "Performance apparel and gear built for combat sports athletes.",
     },
     {
       title: "Teamwear",
@@ -45,6 +51,8 @@ export const categoriesContent = {
       title: "Fitness & Training",
       to: "/categories/fitness",
       image: images.fitness,
+      description:
+        "Training apparel engineered for movement, comfort and durability.",
     },
     // { title: "Uniforms", to: "/categories/uniforms", image: uniforms },
   ] satisfies CategoryItem[],

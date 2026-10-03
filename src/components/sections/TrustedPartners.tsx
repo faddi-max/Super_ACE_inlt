@@ -1,5 +1,5 @@
 import { partnersContent as c } from "@/content/partners";
-import { Reveal } from "@/components/animation";
+import { CursorGlow, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /**
@@ -10,7 +10,8 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
  */
 export function TrustedPartners() {
   return (
-    <section className="bg-white pb-16 pt-9.5 text-navy">
+    <section className="relative isolate overflow-hidden bg-white pb-16 pt-9.5 text-navy">
+      <CursorGlow />
       <div className="mx-auto max-w-300 px-6 lg:px-0">
         <Reveal className="text-center">
           <Eyebrow>{c.eyebrow}</Eyebrow>

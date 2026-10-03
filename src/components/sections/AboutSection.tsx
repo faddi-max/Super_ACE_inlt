@@ -1,7 +1,6 @@
-
 import { aboutContent as c } from "@/content/about";
 import { images } from "@/assets/images";
-import { Reveal } from "@/components/animation";
+import { CursorGlow, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { cn } from "@/lib/cn";
@@ -16,16 +15,17 @@ import { cn } from "@/lib/cn";
 export function AboutSection() {
   return (
     <section className="relative isolate overflow-hidden bg-white pb-24 pt-9 text-navy">
+      <CursorGlow />
       {/* soft electric glows */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="motion-float pointer-events-none absolute left-1/2 top-77.5 -z-10 ml-17.5 hidden h-45 w-105 rounded-full bg-electric/15 blur-[70px] lg:block"
-      />
-      <div
+      /> */}
+      {/* <div
         aria-hidden="true"
         className="motion-float pointer-events-none absolute left-1/2 top-215 -z-10 -ml-115 hidden h-50 w-205 rounded-full bg-electric/15 blur-[80px] lg:block"
         style={{ animationDelay: "-4.5s" }}
-      />
+      /> */}
 
       <div className="mx-auto max-w-360 px-6 lg:px-28.5">
         <div className="grid gap-12 lg:grid-cols-[540px_570px] lg:gap-18">
@@ -75,9 +75,7 @@ export function AboutSection() {
                     "group border-silver pb-6 pt-5 transition-colors duration-300 hover:bg-electric/5 motion-reduce:transition-none",
                     index > 0 && "border-t",
                     index === 1 && "sm:border-t-0",
-                    index % 2 === 1
-                      ? "sm:border-l sm:pl-5.5"
-                      : "sm:pr-5.5",
+                    index % 2 === 1 ? "sm:border-l sm:pl-5.5" : "sm:pr-5.5",
                   )}
                 >
                   <p className="font-display text-[22px] font-light leading-none text-electric transition-transform duration-300 group-hover:-translate-y-1 motion-reduce:transition-none">

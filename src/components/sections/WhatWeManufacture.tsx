@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { images } from "@/assets/images";
-import { Reveal } from "@/components/animation";
+import { CursorGlow, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { manufactureContent as c } from "@/content/manufacture";
@@ -12,7 +12,8 @@ export function WhatWeManufacture() {
   const [active, setActive] = useState(c.defaultIndex);
 
   return (
-    <section className="bg-white bg-manufacture-glow py-16 lg:pb-[187px] lg:pt-[62px]">
+    <section className="relative isolate overflow-hidden bg-white bg-manufacture-glow py-16 lg:pb-[187px] lg:pt-[62px]">
+      <CursorGlow />
       <div className="mx-auto grid w-full max-w-360 gap-10 px-6 lg:grid-cols-[280px_900px] lg:gap-0 lg:px-30">
         <Reveal className="lg:pt-[30px]">
           <Eyebrow className="text-[10px] leading-[4px] tracking-[0.05em]">

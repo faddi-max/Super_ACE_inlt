@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Reveal } from "@/components/animation";
+import { CursorGlow, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { testimonialsContent as c } from "@/content/testimonials";
@@ -25,7 +25,8 @@ export function Testimonials() {
   const go = (index: number) => setActive((index + total) % total);
 
   return (
-    <section className="bg-white bg-testimonials-glow py-16 lg:pb-[65px] lg:pt-[77px]">
+    <section className="relative isolate overflow-hidden bg-white bg-testimonials-glow py-16 lg:pb-[65px] lg:pt-[77px]">
+      <CursorGlow />
       <div className="mx-auto w-full max-w-360 px-6 lg:px-30">
         <Reveal className="mx-auto flex flex-col items-center text-center">
           <Eyebrow className="text-[10px] leading-[4px] tracking-[0.05em]">

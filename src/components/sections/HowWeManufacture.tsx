@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { Reveal } from "@/components/animation";
+import { CursorGlow, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { processContent as c } from "@/content/process";
 
 export function HowWeManufacture() {
   return (
-    <section className="bg-white py-16">
+    <section className="relative isolate overflow-hidden bg-white py-16">
+      <CursorGlow />
       <div className="mx-auto w-full max-w-360 px-6 lg:px-30">
         <Reveal>
           <Eyebrow className="text-[10px] leading-[4px] tracking-[0.05em]">

@@ -107,8 +107,12 @@ export function CategoriesSlider() {
                     aria-hidden="true"
                     className="absolute inset-0 bg-category-overlay"
                   />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-navy/35 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100"
+                  />
                   {item.description && (
-                    <div className="absolute inset-x-0 bottom-0 space-y-3 px-[18px] pb-5">
+                    <div className="absolute inset-x-0 bottom-0 translate-y-3 space-y-3 px-[18px] pb-5 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100">
                       <p className="font-sans text-[10px] font-medium leading-[15.5px] text-white">
                         {item.description}
                       </p>

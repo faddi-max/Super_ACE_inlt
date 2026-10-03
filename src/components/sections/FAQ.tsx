@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Reveal } from "@/components/animation";
+import { CursorGlow, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { faqContent as c, type FaqFilter } from "@/content/faq";
@@ -23,7 +23,8 @@ export function FAQ() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white bg-faq-glow py-16 lg:pb-0 lg:pt-[59px]">
+    <section className="relative isolate overflow-hidden bg-white bg-faq-glow py-16 lg:pb-0 lg:pt-[59px]">
+      <CursorGlow />
       <div className="relative mx-auto w-full max-w-360 px-6 lg:min-h-[686px] lg:px-30">
         <span
           aria-hidden="true"
