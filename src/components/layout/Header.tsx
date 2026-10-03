@@ -19,7 +19,11 @@ export function Header() {
     >
       {/* 1440 x 80, horizontal padding 120px, logo 77x77 */}
       <div className="mx-auto flex h-20 w-full max-w-360 items-center justify-between gap-2.5 px-6 lg:px-30">
-        <Link to="/" aria-label="SUPER ACE home" className="flex shrink-0 items-center">
+        <Link
+          to="/"
+          aria-label="SUPER ACE home"
+          className="flex shrink-0 items-center"
+        >
           <img
             src={logo}
             alt="SUPER ACE"
@@ -32,10 +36,14 @@ export function Header() {
 
         <Link
           to="/contact"
-          className="hidden h-7 items-center gap-2 rounded-sm bg-electric px-4 text-center font-montserrat text-[10px] font-semibold uppercase leading-3.5 tracking-[0.7px] text-white transition-opacity hover:opacity-90 lg:inline-flex"
+          className="group hidden h-9 items-center gap-2 rounded-[3px] bg-electric px-4 text-center font-montserrat text-[10px] font-semibold uppercase leading-3.5 tracking-[0.7px] text-white shadow-button transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric lg:inline-flex"
         >
           Explore More
-          <ArrowRight size={12} strokeWidth={2.5} />
+          <ArrowRight
+            className="transition-transform duration-300 group-hover:translate-x-1"
+            size={12}
+            strokeWidth={2.5}
+          />
         </Link>
 
         {/* Mobile toggle */}
@@ -44,7 +52,7 @@ export function Header() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="text-white lg:hidden"
+          className="grid size-11 place-items-center rounded-sm text-white transition-colors duration-300 hover:bg-white/10 hover:text-electric focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric lg:hidden"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -57,9 +65,13 @@ export function Header() {
           <Link
             to="/contact"
             onClick={() => setOpen(false)}
-            className="mt-6 inline-flex h-10 items-center gap-2 rounded-sm bg-electric px-5 font-montserrat text-[10px] font-semibold uppercase leading-3.5 tracking-[0.7px] text-white"
+            className="group mt-6 inline-flex h-10 items-center gap-2 rounded-[3px] bg-electric px-5 font-montserrat text-[10px] font-semibold uppercase leading-3.5 tracking-[0.7px] text-white shadow-button transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric"
           >
-            Explore More <ArrowRight size={12} />
+            Explore More
+            <ArrowRight
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              size={12}
+            />
           </Link>
         </div>
       )}
