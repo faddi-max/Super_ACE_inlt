@@ -1,5 +1,5 @@
 import { partnersContent as c } from "@/content/partners";
-import { CursorGlow, Reveal } from "@/components/animation";
+import { CursorGlow, MaskLines, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /**
@@ -16,7 +16,7 @@ export function TrustedPartners() {
         <Reveal className="text-center">
           <Eyebrow>{c.eyebrow}</Eyebrow>
           <h2 className="mt-1.5 font-display text-[32px] font-bold uppercase leading-none">
-            {c.title}
+            <MaskLines lines={[{ text: c.title }]} />
           </h2>
         </Reveal>
 

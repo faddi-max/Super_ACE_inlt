@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { images } from "@/assets/images";
-import { CursorGlow, Reveal } from "@/components/animation";
+import { CursorGlow, MaskLines, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { manufactureContent as c } from "@/content/manufacture";
@@ -24,11 +24,7 @@ export function WhatWeManufacture() {
             as="h2"
             className="mt-5 text-[44px] leading-[39.16px] tracking-[0.44px] text-navy"
           >
-            {c.title.map((line) => (
-              <span className="block" key={line}>
-                {line}
-              </span>
-            ))}
+            <MaskLines lines={c.title.map((text) => ({ text }))} />
           </Heading>
 
           <p className="mt-4 max-w-[252px] font-sans text-[12px] leading-5 text-slate">

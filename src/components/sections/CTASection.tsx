@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { Reveal } from "@/components/animation";
+import { MaskLines, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { ctaContent as c } from "@/content/cta";
-import { cn } from "@/lib/cn";
 
 export function CTASection() {
   return (
@@ -19,21 +18,16 @@ export function CTASection() {
           </Eyebrow>
         </Reveal>
 
-        <Reveal delay={90}>
-          <Heading
-            as="h2"
-            className="mt-[22px] text-[52px] leading-[48px] tracking-[0.44px] text-white lg:text-[80px] lg:leading-[71px]"
-          >
-            {c.title.map((line) => (
-              <span
-                className={cn("block", line.accent && "text-electric")}
-                key={line.text}
-              >
-                {line.text}
-              </span>
-            ))}
-          </Heading>
-        </Reveal>
+        <Heading
+          as="h2"
+          className="mt-[22px] text-[52px] leading-[48px] tracking-[0.44px] text-white lg:text-[80px] lg:leading-[71px]"
+        >
+          <MaskLines
+            accentClassName="motion-shine"
+            delay={90}
+            lines={c.title}
+          />
+        </Heading>
 
         <Reveal delay={180}>
           <p className="mt-[30px] max-w-[420px] font-sans text-[11px] leading-5 text-silver/60">

@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { Reveal } from "@/components/animation";
+import { MaskLines, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { customSolutionsContent as c } from "@/content/customSolutions";
+import { trackPointer } from "@/lib/spotlight";
 
 export function CustomSolutions() {
   return (
@@ -19,13 +20,9 @@ export function CustomSolutions() {
 
           <Heading
             as="h2"
-            className="mt-5 text-[44px] leading-[39.16px] tracking-[0.44px] text-white"
+            className="mt-6 text-[44px] leading-[39.16px] tracking-[0.44px] text-white"
           >
-            {c.title.map((line) => (
-              <span className="block" key={line}>
-                {line}
-              </span>
-            ))}
+            <MaskLines lines={c.title.map((text) => ({ text }))} />
           </Heading>
 
           <p className="mt-4 max-w-[490px] text-[15px] font-normal leading-[25.5px] text-silver">
@@ -48,9 +45,10 @@ export function CustomSolutions() {
         <div className="grid border-l-[0.8px] border-t-[0.8px] border-white/14 sm:grid-cols-2 lg:h-[289px] lg:w-[610.5px] lg:grid-rows-[144.5px_144.5px]">
           {c.items.map((item, i) => (
             <Reveal
-              className="group flex min-h-[144.5px] flex-col border-b-[0.8px] border-r-[0.8px] border-white/14 px-7 pt-7 transition-colors duration-500 ease-out hover:bg-white/[0.03]"
+              className="motion-spotlight group flex min-h-[144.5px] flex-col border-b-[0.8px] border-r-[0.8px] border-white/14 px-7 pt-7 transition-colors duration-500 ease-out"
               delay={i * 90}
               key={item.index}
+              onPointerMove={trackPointer}
             >
               <span className="font-sans text-[9px] font-extrabold leading-[15.3px] tracking-[1.08px] text-electric">
                 {item.index}

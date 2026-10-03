@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CursorGlow, Reveal } from "@/components/animation";
+import { CursorGlow, MaskLines, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { faqContent as c, type FaqFilter } from "@/content/faq";
@@ -43,11 +43,7 @@ export function FAQ() {
                 as="h2"
                 className="mt-4 text-[36px] leading-[39px] tracking-[0px] text-navy sm:text-[44px] sm:leading-[53.32px]"
               >
-                {c.title.map((line) => (
-                  <span className="block" key={line}>
-                    {line}
-                  </span>
-                ))}
+                <MaskLines lines={c.title.map((text) => ({ text }))} />
               </Heading>
             </div>
 

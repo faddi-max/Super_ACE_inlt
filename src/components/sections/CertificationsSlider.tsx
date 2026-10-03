@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { Reveal } from "@/components/animation";
+import { MaskLines, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { SliderArrow } from "@/components/ui/SliderArrow";
 import { certificationsContent as c } from "@/content/certifications";
 import { useScrollSlider } from "@/lib/useScrollSlider";
+import { trackPointer } from "@/lib/spotlight";
 
 const STEP = 308;
 
@@ -25,11 +26,7 @@ export function CertificationsSlider() {
             as="h2"
             className="mt-3 text-[44px] leading-[39.16px] tracking-[0.44px] text-white"
           >
-            {c.title.map((line) => (
-              <span className="block" key={line}>
-                {line}
-              </span>
-            ))}
+            <MaskLines lines={c.title.map((text) => ({ text }))} />
           </Heading>
         </Reveal>
 
@@ -54,7 +51,10 @@ export function CertificationsSlider() {
                   delay={i * 90}
                   key={item.title}
                 >
-                  <article className="relative flex h-[390px] min-h-[390px] flex-col rounded-[3px] border border-white/10 border-t-white/14 bg-certification-card px-[26px] pb-[26px] pt-[30px] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-electric/40">
+                  <article
+                    className="motion-spotlight relative flex h-[390px] min-h-[390px] flex-col rounded-[3px] border border-white/10 border-t-white/14 bg-certification-card px-[26px] pb-[26px] pt-[30px] transition-all duration-500 ease-out hover:-translate-y-1"
+                    onPointerMove={trackPointer}
+                  >
                     <span
                       aria-hidden="true"
                       className="absolute -left-px -top-px h-0.5 w-[289px] bg-accent-fade"

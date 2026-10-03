@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { CursorGlow, Reveal } from "@/components/animation";
+import { CursorGlow, MaskLines, Reveal } from "@/components/animation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { testimonialsContent as c } from "@/content/testimonials";
@@ -36,7 +36,7 @@ export function Testimonials() {
             as="h2"
             className="mt-[22px] text-[44px] leading-[39.16px] tracking-[0.44px] text-navy"
           >
-            {c.title}
+            <MaskLines lines={[{ text: c.title }]} />
           </Heading>
           <p className="mt-[25px] max-w-[450px] font-sans text-[11px] leading-5 text-navy/50">
             {c.description}
