@@ -1,14 +1,9 @@
-export interface Stat {
-  value: number;
-  suffix?: string;
-  label: string;
-}
 
-export const statsContent = {
-  items: [
-    { value: 15, suffix: "+", label: "Years of experience" },
-    { value: 40, suffix: "+", label: "Export markets" },
-    { value: 500, suffix: "+", label: "Skilled team members" },
-    { value: 1000000, suffix: "+", label: "Pieces per year" },
-  ] satisfies Stat[],
-};
+export type Stat = { value: string; label: string };
+
+export const heroStats: Stat[] = [
+  { value: "29", label: "Years of Manufacturing" },
+  { value: "46", label: "Countries Served" },
+  { value: "170", label: "Brands Worked With" },
+  { value: "1,000", label: "Products Developed" },
+];

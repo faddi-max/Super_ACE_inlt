@@ -5,6 +5,8 @@ import { heroContent as c } from "@/content/hero";
 import { images } from "@/assets/images";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/cn";
+import { HeroStats } from "./HeroStats";
+import { HeroEyebrow } from "./HeroEyebrow";
 
 /**
  * Figma: 1440 × 770 · top 79 · bg navy
@@ -35,21 +37,14 @@ export function Hero() {
       />
 
       <Container className="flex flex-col items-center pb-16 pt-20 text-center sm:pt-[122px]">
-        <p
+        <div
           className="hero-rise font-montserrat text-nav font-extrabold uppercase leading-1 tracking-[0.05em]"
           style={delay(200)}
         >
-          {c.eyebrow.map((part) => (
-            <span
-              key={part.text}
-              className={cn(part.accent ? "text-electric" : "text-white")}
-            >
-              {part.text}{" "}
-            </span>
-          ))}
-        </p>
+          <HeroEyebrow />
+        </div>
 
-        <h1 className="mt-5 font-display text-[clamp(2.75rem,12vw,3.5rem)] leading-[0.9] font-bold uppercase sm:mt-9 md:text-hero">
+        <h1 className="mt-5 font-display text-[clamp(2.75rem,12vw,3.5rem)] text-[96px] leading-[0.9] font-bold uppercase sm:mt-9 md:text-hero">
           {c.headline.map((line, index) => (
             <span
               key={line.text}
@@ -65,14 +60,14 @@ export function Hero() {
         </h1>
 
         <p
-          className="hero-rise mt-4 max-w-100 px-2 text-small text-silver sm:mt-5 sm:px-0"
+          className="hero-rise mt-4 max-w-[600px] px-2 text-[15px] text-silver sm:mt-5 sm:px-0"
           style={delay(900)}
         >
           {c.description}
         </p>
 
         <ul
-          className="hero-rise mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-montserrat text-ui-label font-semibold uppercase text-silver sm:mt-9"
+          className="hero-rise mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-montserrat text-[12px] font-semibold uppercase text-silver sm:mt-9"
           style={delay(1020)}
         >
           {c.tags.map((tag, index) => (
@@ -107,6 +102,7 @@ export function Hero() {
             <ArrowRight aria-hidden="true" size={12} strokeWidth={2.5} />
           </Link>
         </div>
+        <HeroStats />
       </Container>
 
       <p

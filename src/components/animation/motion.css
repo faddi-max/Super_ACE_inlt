@@ -220,3 +220,70 @@
     display: none;
   }
 }
+
+@keyframes tour-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes tour-spot-in {
+  from {
+    opacity: 0;
+    scale: 0.4;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.tour-progress {
+  transform: scaleX(0);
+  animation: tour-progress linear forwards;
+}
+
+.tour-spot {
+  opacity: 0;
+}
+
+[data-revealed="true"] .tour-spot {
+  animation: tour-spot-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-progress {
+    animation: none;
+    transform: scaleX(1);
+  }
+
+  .tour-spot,
+  [data-revealed="true"] .tour-spot {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@keyframes quality-text-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.quality-text-in {
+  animation: quality-text-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quality-text-in {
+    animation: none;
+  }
+}

@@ -1,3 +1,4 @@
+@import "@fontsource/barlow-condensed/400.css";
 @import "@fontsource/barlow-condensed/500.css";
 @import "@fontsource/barlow-condensed/700.css";
 @import "@fontsource/barlow-condensed/800.css";
@@ -9,6 +10,8 @@
 @import "../components/animation/motion.css";
 
 @theme {
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+
   --color-navy: #0b0f1a;
   --color-panel: #101621;
   --color-card-start: #151c28;
@@ -16,9 +19,13 @@
   --color-electric: #1e90ff;
   --color-white: #ffffff;
   --color-slate: #2a2f3a;
+  --color-slate-edge: #343b47;
   --color-silver: #e6e6e6;
+  --color-mist: #a7abb1;
   --color-testimonial-quote: #d9e0e8;
   --color-muted-label: #a1a9b3;
+  --color-cool-gray: #9ca6b5;
+  --color-steel: #697382;
   --color-neon-green: #39ff14;
   --color-speed-red: #ff2d2d;
   --color-neon-orange: #ff7a00;
@@ -120,6 +127,9 @@
   --text-hero: clamp(4.5rem, 8vw, 6rem);
   --text-hero--line-height: 0.8;
   --text-hero--letter-spacing: -0.02em;
+  --text-hero-eyebrow: clamp(0.5rem, 2.5vw, 0.625rem);
+  --text-hero-eyebrow--line-height: 0.875rem;
+  --text-hero-eyebrow--letter-spacing: 0.08em;
   --text-eyebrow: 0.5625rem;
   --text-eyebrow--line-height: 0.8125rem;
   --text-eyebrow--letter-spacing: 0.22em;
@@ -141,6 +151,11 @@
   --text-caption--line-height: 1.5;
   --text-nav: 0.625rem;
   --text-nav--line-height: 1;
+  --text-stat: 2rem;
+  --text-stat--line-height: 2.8125rem;
+  --text-stat-label: 0.5rem;
+  --text-stat-label--line-height: 0.75rem;
+  --text-stat-label--letter-spacing: 0.12em; /* 0.96px at 8px */
   --text-button: 0.625rem;
   --text-button--line-height: 1;
   --text-button--letter-spacing: 0.07em;

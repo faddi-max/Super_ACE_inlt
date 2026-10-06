@@ -7,7 +7,14 @@ export type HeroContent = {
   secondaryCta: { label: string; to: string };
   caption: string;
 };
+export type EyebrowSegment = { text: string; accent?: boolean };
 
+export const heroEyebrow: EyebrowSegment[] = [
+  { text: "Premium", accent: true },
+  { text: "Sportswear & Apparel" },
+  { text: "Manufacturer For", accent: true },
+  { text: "Global Brands" },
+];
 export const heroContent: HeroContent = {
   eyebrow: [
     { text: "Engineer", accent: true },
@@ -16,10 +23,10 @@ export const heroContent: HeroContent = {
     { text: "Excellence." },
   ],
   headline: [
-    { text: "Engineered for" },
-    { text: "Performance.", accent: true },
-    { text: "Built for global" },
-    { text: "brands." },
+    { text: "BUILT FOR" },
+    { text: "CHAMPIONS."},
+    { text: "ENGINEERED FOR", accent: true  },
+    { text: "PERFORMANCE." },
   ],
   description:
     "A Trusted Sportswear Manufacturing Company, Serving Global Brands With High-End Custom Solutions.",

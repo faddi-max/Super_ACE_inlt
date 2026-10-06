@@ -29,7 +29,7 @@ export function Footer() {
               className="mt-5 max-w-[300px] text-[29px] font-bold not-italic uppercase leading-[28.8px] tracking-[0.8px] text-white"
               style={{ fontFamily: "'Orbitron', sans-serif", fontWeight: 700 }}
             >
-              {c.title ?? "Super Ace International"}
+              { "Super Ace International"}
             </h2>
 
             <p className="mt-2 max-w-[290px] font-body text-[11px] leading-[17px] text-white/70">

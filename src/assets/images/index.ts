@@ -1,3 +1,8 @@
+import resourcesBackground from "./resources/bg.png";
+import resourcesManufacturing from "./resources/manufacturing.jpg";
+import resourcesFabrics from "./resources/fabrics.jpg";
+import resourcesPartner from "./resources/partner.jpg";
+
 const imageModules = import.meta.glob<string>(
   [
     "./**/*.{avif,gif,jpg,jpeg,png,svg,webp}",
@@ -24,6 +29,7 @@ export const images = {
   about: imagesByName.about,
   combat: imagesByName.combat,
   fitness: imagesByName.fitness,
+  factoryFloor: imagesByName["factory-floor"],
   homehero: imagesByName.homehero,
   herooveraly: imagesByName.herooveraly,
   partnerlogo1: imagesByName.partnerlogo1,
@@ -46,5 +52,11 @@ export const images = {
     production: imagesByName.production,
     qualityControl: imagesByName["quality-control"],
     exportDelivery: imagesByName["export-delivery"],
+  },
+  resources: {
+    background: resourcesBackground,
+    manufacturing: resourcesManufacturing,
+    fabrics: resourcesFabrics,
+    partner: resourcesPartner,
   },
 };
