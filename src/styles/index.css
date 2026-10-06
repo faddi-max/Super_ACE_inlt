@@ -14,6 +14,7 @@
 
   --color-navy: #0b0f1a;
   --color-panel: #101621;
+  --color-panel-deep: #10151f;
   --color-card-start: #151c28;
   --color-card-end: #0e131d;
   --color-electric: #1e90ff;
@@ -25,11 +26,13 @@
   --color-testimonial-quote: #d9e0e8;
   --color-muted-label: #a1a9b3;
   --color-cool-gray: #9ca6b5;
+  --color-cloud: #f4f6f8;
   --color-steel: #697382;
   --color-neon-green: #39ff14;
   --color-speed-red: #ff2d2d;
   --color-neon-orange: #ff7a00;
   --color-shade: #070c16;
+  --color-ink: #03060b;
 
   --background-image-cursor-glow: radial-gradient(
     circle,
@@ -92,6 +95,39 @@
     color-mix(in srgb, var(--color-navy) 58%, transparent) 0%,
     color-mix(in srgb, var(--color-navy) 8%, transparent) 43%,
     transparent 70%
+  );
+
+  --background-image-categories-hero-glow: radial-gradient(
+    77.23% 77.23% at 50% 50%,
+    color-mix(in srgb, var(--color-navy) 25%, transparent) 25.23%,
+    color-mix(in srgb, var(--color-electric) 25%, transparent) 42.58%
+  );
+
+  --background-image-categories-hero-side: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-shade) 50%, transparent) 0%,
+    color-mix(in srgb, var(--color-navy) 47%, transparent) 40%,
+    color-mix(in srgb, var(--color-navy) 27.5%, transparent) 74%,
+    color-mix(in srgb, var(--color-navy) 39.8%, transparent) 100%
+  );
+
+  --background-image-sport-select-glow: radial-gradient(
+    49.34% 49.34% at 50.66% 53.28%,
+    color-mix(in srgb, var(--color-electric) 20%, transparent) 0%,
+    color-mix(in srgb, var(--color-navy) 20%, transparent) 100%
+  );
+
+  --background-image-product-card-overlay: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-ink) 0%, transparent) 22%,
+    color-mix(in srgb, var(--color-ink) 22%, transparent) 31.89%,
+    color-mix(in srgb, var(--color-ink) 97%, transparent) 92%
+  );
+
+  --background-image-development-banner: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-steel) 50%, var(--color-cloud)) 0%,
+    var(--color-cloud) 55%
   );
 
   --background-image-manufacture-glow:

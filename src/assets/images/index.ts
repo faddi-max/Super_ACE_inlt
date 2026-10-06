@@ -2,6 +2,12 @@ import resourcesBackground from "./resources/bg.png";
 import resourcesManufacturing from "./resources/manufacturing.jpg";
 import resourcesFabrics from "./resources/fabrics.jpg";
 import resourcesPartner from "./resources/partner.jpg";
+import productDevelopmentBanner from "./product-development/banner.png";
+import productDevelopmentReference from "./product-development/reference.png";
+import productDevelopmentSpecification from "./product-development/specification.png";
+import productDevelopmentGarment from "./product-development/garment.png";
+import productDevelopmentFinishing from "./product-development/finishing.png";
+import productDevelopmentBackground from "./bg.png";
 
 const imageModules = import.meta.glob<string>(
   [
@@ -52,6 +58,14 @@ export const images = {
     production: imagesByName.production,
     qualityControl: imagesByName["quality-control"],
     exportDelivery: imagesByName["export-delivery"],
+  },
+  productDevelopment: {
+    background: productDevelopmentBackground,
+    banner: productDevelopmentBanner,
+    reference: productDevelopmentReference,
+    specification: productDevelopmentSpecification,
+    garment: productDevelopmentGarment,
+    finishing: productDevelopmentFinishing,
   },
   resources: {
     background: resourcesBackground,

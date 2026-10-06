@@ -4,8 +4,8 @@ import Capabilities from "@/pages/Capabilities";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
-import Products from "@/pages/Products";
 import Sustainability from "@/pages/Sustainability";
+import Categories from "@/pages/Categories";
 
 export function AppRouter() {
   return (
@@ -14,7 +14,7 @@ export function AppRouter() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/capabilities" element={<Capabilities />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="/sustainability" element={<Sustainability />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
