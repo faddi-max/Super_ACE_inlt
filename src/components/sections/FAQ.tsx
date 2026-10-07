@@ -33,7 +33,7 @@ export function FAQ() {
           {c.watermark}
         </span>
 
-        <div className="relative grid gap-12 lg:grid-cols-[456px_1fr] lg:gap-0">
+        <div className="relative grid gap-12 lg:grid-cols-[456px_minmax(0,1fr)] lg:gap-0">
           <Reveal className="lg:pt-2">
             <div className="border-b-[0.8px] border-navy/10 pb-[19px] lg:w-[311px]">
               <Eyebrow className="text-[10px] leading-[4px] tracking-[0.05em]">

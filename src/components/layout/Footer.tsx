@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { footerContent as c } from "@/content/footer";
 import logo from "@/assets/brand/logo.png";
 

@@ -33,12 +33,31 @@
   --color-neon-orange: #ff7a00;
   --color-shade: #070c16;
   --color-ink: #03060b;
+  --color-cta-panel: #0d121c;
 
   --background-image-cursor-glow: radial-gradient(
     circle,
     color-mix(in srgb, var(--color-electric) 22%, transparent) 0%,
     transparent 70%
   );
+
+  --background-image-cta-card-glow: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-electric) 8%, transparent) 0%,
+    transparent 45%
+  );
+
+  --background-image-material-overlay:
+    linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--color-navy) 40%, transparent) 0%,
+      color-mix(in srgb, var(--color-navy) 0%, transparent) 100%
+    ),
+    linear-gradient(
+      90deg,
+      var(--color-navy) 0%,
+      color-mix(in srgb, var(--color-navy) 0%, transparent) 38%
+    );
 
   --background-image-certification-card: linear-gradient(
     180deg,
@@ -124,6 +143,46 @@
     color-mix(in srgb, var(--color-ink) 97%, transparent) 92%
   );
 
+  --background-image-journey-grid:
+    linear-gradient(
+      color-mix(in srgb, var(--color-electric) 6%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-electric) 6%, transparent) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      45% 35% at 50% 40%,
+      color-mix(in srgb, var(--color-electric) 10%, transparent) 0%,
+      transparent 100%
+    );
+
+  --background-image-journey-card-overlay:
+    linear-gradient(
+      255.64deg,
+      color-mix(in srgb, var(--color-electric) 30%, transparent) 0.06%,
+      color-mix(in srgb, var(--color-navy) 30%, transparent) 78.68%
+    ),
+    linear-gradient(
+      0deg,
+      color-mix(in srgb, black 20%, transparent),
+      color-mix(in srgb, black 20%, transparent)
+    );
+
+  --background-image-factory-video-band: linear-gradient(
+    251.66deg,
+    color-mix(in srgb, var(--color-electric) 40%, transparent) -59.66%,
+    color-mix(in srgb, var(--color-navy) 40%, transparent) 62.45%
+  );
+
+  --background-image-factory-video-overlay: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-navy) 96%, transparent) 0%,
+    color-mix(in srgb, var(--color-navy) 38%, transparent) 100%
+  );
+
   --background-image-development-banner: linear-gradient(
     90deg,
     color-mix(in srgb, var(--color-steel) 50%, var(--color-cloud)) 0%,
@@ -206,12 +265,10 @@
   }
 
   html {
-    min-width: 320px;
     scroll-behavior: smooth;
   }
 
   body {
-    min-width: 320px;
     min-height: 100vh;
     margin: 0;
     background: var(--color-white);

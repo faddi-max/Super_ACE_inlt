@@ -7,6 +7,7 @@ type HeadingProps = {
   as?: HeadingLevel;
   className?: string;
   children: ReactNode;
+  id?: string;
 };
 
 const sizes: Record<HeadingLevel, string> = {
@@ -16,7 +17,11 @@ const sizes: Record<HeadingLevel, string> = {
   h4: "font-sans text-h4 font-semibold",
 };
 
-export function Heading({ as = "h2", className, children }: HeadingProps) {
+export function Heading({ as = "h2", className, children, id }: HeadingProps) {
   const Element = as as ElementType;
-  return <Element className={cn(sizes[as], className)}>{children}</Element>;
+  return (
+    <Element className={cn(sizes[as], className)} id={id}>
+      {children}
+    </Element>
+  );
 }

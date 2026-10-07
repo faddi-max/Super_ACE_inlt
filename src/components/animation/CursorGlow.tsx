@@ -55,8 +55,12 @@ export function CursorGlow({
 
     const onMove = (event: PointerEvent) => {
       const rect = section.getBoundingClientRect();
-      target.x = event.clientX - rect.left;
-      target.y = event.clientY - rect.top;
+      const clampCenter = (position: number, length: number) =>
+        length <= size
+          ? length / 2
+          : Math.min(Math.max(position, size / 2), length - size / 2);
+      target.x = clampCenter(event.clientX - rect.left, rect.width);
+      target.y = clampCenter(event.clientY - rect.top, rect.height);
 
       if (!active) {
         active = true;
