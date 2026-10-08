@@ -1,5 +1,6 @@
 import { PageLayout } from "@/components/layout/PageLayout";
 import { ContactInquiry } from "@/components/sections/ContactInquiry";
+import { ContactLocations } from "@/components/sections/ContactLocations";
 import { FAQ } from "@/components/sections/FAQ";
 import { PageHero } from "@/components/sections/PageHero";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -11,7 +12,7 @@ export default function Contact() {
       <PageHero content={contactHeroContent} />
       <div id="inquiry" />
       <ContactInquiry />
-      <div id="locations" />
+      <ContactLocations />
       <Testimonials />
       <FAQ />
     </PageLayout>
