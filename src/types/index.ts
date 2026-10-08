@@ -24,4 +24,5 @@ export type PageHeroContent = {
   titleLines: HeroPart[][];
   description: string;
   stats?: { value: string; label: string }[];
+  ctas?: { label: string; to: string; variant?: "primary" | "outline" }[];
 };

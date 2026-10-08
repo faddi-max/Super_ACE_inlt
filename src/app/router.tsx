@@ -5,8 +5,9 @@ import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
 import Process from "@/pages/Process";
-import Sustainability from "@/pages/Sustainability";
+
 import Categories from "@/pages/Categories";
+import Resources from "@/pages/Resources";
 
 export function AppRouter() {
   return (
@@ -17,7 +18,7 @@ export function AppRouter() {
         <Route path="/capabilities" element={<Capabilities />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/process" element={<Process />} />
-        <Route path="/sustainability" element={<Sustainability />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

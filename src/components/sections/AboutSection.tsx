@@ -12,7 +12,7 @@ import { cn } from "@/lib/cn";
  * feature grid top y≈376 (rows 164 / 144) · vision/mission row top y≈784,
  * divider at x714, columns padded 54.
  */
-export function AboutSection() {
+export function AboutSection( {isresoursepage}: {isresoursepage?: boolean} ) {
   return (
     <section className="relative isolate overflow-hidden bg-white pb-24 pt-9 text-navy">
       <CursorGlow />
@@ -94,6 +94,7 @@ export function AboutSection() {
         </div>
 
         {/* Vision / Mission */}
+        {!isresoursepage ? (
         <div className="mt-16 grid max-w-300 md:grid-cols-2 lg:mt-25">
           {c.statements.map((item, index) => (
             <Reveal
@@ -119,7 +120,7 @@ export function AboutSection() {
               />
             </Reveal>
           ))}
-        </div>
+        </div>) : null }
       </div>
     </section>
   );

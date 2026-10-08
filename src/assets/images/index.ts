@@ -44,6 +44,7 @@ export const images = {
   "sports-apparel": imagesByName["sports-apparel"],
   teamwear: imagesByName.teamwear,
   Section: imagesByName.Section,
+
   cta: {
     background: imagesByName["cta-bg"],
   },
@@ -73,4 +74,11 @@ export const images = {
     fabrics: resourcesFabrics,
     partner: resourcesPartner,
   },
+  team:{
+    "usman-arshad": imagesByName["usman-arshad"],
+    "usman-jameel": imagesByName["usman-jameel"],
+    "rizwan-ahmed": imagesByName["rizwan-ahmed"],
+    "ahmed-ali": imagesByName["ahmed-ali"],
+  }
+
 };

@@ -1,9 +1,15 @@
-import { heroEyebrow } from "@/content/hero";
+import { heroEyebrow, type EyebrowSegment } from "@/content/hero";
 import { cn } from "@/lib/cn";
 
-type HeroEyebrowProps = { className?: string };
+type HeroEyebrowProps = {
+  className?: string;
+  segments?: EyebrowSegment[];
+};
 
-export function HeroEyebrow({ className }: HeroEyebrowProps) {
+export function HeroEyebrow({
+  className,
+  segments = heroEyebrow,
+}: HeroEyebrowProps) {
   return (
     <p
       className={cn(
@@ -11,7 +17,7 @@ export function HeroEyebrow({ className }: HeroEyebrowProps) {
         className,
       )}
     >
-      {heroEyebrow.map((segment, index) => (
+      {segments.map((segment, index) => (
         <span key={segment.text}>
           {index > 0 && " "}
           <span className={segment.accent ? "text-electric" : undefined}>

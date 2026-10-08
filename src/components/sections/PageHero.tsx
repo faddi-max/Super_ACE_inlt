@@ -1,10 +1,18 @@
 import type { CSSProperties } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import type { HeroPart, PageHeroContent } from "@/types";
 import { cn } from "@/lib/cn";
 
 const delay = (ms: number) => ({ "--hero-delay": `${ms}ms` }) as CSSProperties;
-
+const ctaClass = (variant?: "primary" | "outline") =>
+  cn(
+    "inline-flex h-11 w-full items-center justify-center gap-2 rounded-xs px-6 font-montserrat text-button font-semibold uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric sm:h-10 sm:w-auto",
+    variant === "outline"
+      ? "border border-silver/60 text-white hover:border-electric hover:text-electric"
+      : "bg-electric text-white hover:bg-white hover:text-navy",
+  );
 const Parts = ({ parts }: { parts: HeroPart[] }) =>
   parts.map((part, i) => (
     <span className={cn(part.accent && "text-electric")} key={`${part.text}-${i}`}>
@@ -63,10 +71,35 @@ export function PageHero({ content: c }: PageHeroProps) {
           {c.description}
         </p>
 
+        {c.ctas && (
+          <div
+            className="hero-rise mt-6 flex w-full max-w-72 flex-col items-center justify-center gap-2 sm:mt-7 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3"
+            style={delay(560)}
+          >
+         {c.ctas.map((cta) => {
+  const content = (
+    <>
+      {cta.label}
+      <ArrowRight aria-hidden="true" size={12} strokeWidth={2.5} />
+    </>
+  );
+  return cta.to.startsWith("#") ? (
+    <a className={ctaClass(cta.variant)} href={cta.to} key={cta.label}>
+      {content}
+    </a>
+  ) : (
+    <Link className={ctaClass(cta.variant)} key={cta.label} to={cta.to}>
+      {content}
+    </Link>
+  );
+})}
+          </div>
+        )}
+
         {c.stats && (
           <dl
             className="hero-rise mt-6 flex flex-wrap items-start justify-center gap-x-10 gap-y-4 sm:mt-8 sm:gap-x-12"
-            style={delay(560)}
+            style={delay(700)}
           >
             {c.stats.map((stat) => (
               <div
