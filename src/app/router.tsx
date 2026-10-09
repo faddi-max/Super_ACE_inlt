@@ -8,6 +8,8 @@ import Process from "@/pages/Process";
 
 import Categories from "@/pages/Categories";
 import Resources from "@/pages/Resources";
+import { Blogs } from "@/pages/Blogs";
+import { SinglePageBlog } from "@/pages/SinglePageBlog";
 
 export function AppRouter() {
   return (
@@ -20,6 +22,8 @@ export function AppRouter() {
         <Route path="/process" element={<Process />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blogs" element={<Blogs />} />
+         <Route path="/blogs/:slug" element={<SinglePageBlog />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

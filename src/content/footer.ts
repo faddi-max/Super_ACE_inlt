@@ -25,6 +25,7 @@ export const footerContent = {
         { label: "What We Manufacture", to: "/manufacture" },
         { label: "Certifications", to: "/certifications" },
         { label: "Testimonials", to: "/testimonials" },
+        { label: "Blogs", to: "/blogs" },
       ],
     },
     {
