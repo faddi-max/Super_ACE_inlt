@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ScrollProgress } from "@/components/animation";
+import { FloatingActions } from "@/components/layout/FloatingActions";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 
@@ -14,6 +15,7 @@ export function PageLayout({ children }: PageLayoutProps) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <FloatingActions />
     </div>
   );
 }

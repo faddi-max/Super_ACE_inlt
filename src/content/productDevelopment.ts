@@ -1,12 +1,15 @@
-import { images } from "@/assets/images";
+// Export "Sportswear Design Blueprint Collage-2.png" from Figma (crop, no background fill)
+// and save it at this path.
+import collage from "@/assets/images/product-development/collage.png";
 
-export type DevelopmentItem = {
+export type DevelopmentIcon = "pencil" | "book" | "file" | "check";
+
+export type DevelopmentStep = {
   number: string;
-  tag: string;
   title: string;
   description: string;
-  image: string;
-  imageAlt: string;
+  icon: DevelopmentIcon;
+  detail: { label: string; value: string };
 };
 
 export const productDevelopmentContent = {
@@ -14,52 +17,50 @@ export const productDevelopmentContent = {
   titleLead: "From your idea",
   titleRest: "to a",
   titleAccent: "product.",
-  route: {
-    eyebrow: "Product development route",
-    title: "One product.\nOne controlled\npath.",
-    description:
-      "Reference, specification and approved details move through a defined development sequence before bulk production.",
-  },
-  steps: ["Brief", "Materials", "Construction", "Approval"],
-  banner: {
-    image: images.productDevelopment.banner,
-    imageAlt:
-      "Flat-lay of technical sportswear garments with pattern and tech pack sketches",
-    label: "Development reference",
-    flow: ["Concept", "Tech Pack", "Sampling", "Fit", "Production Handoff"],
-  },
-  items: [
+  description:
+    "A clear, step-by-step journey turns your concept into a production-ready garment. We align the design, fit and specifications before bulk manufacturing begins.",
+  collage,
+  collageAlt:
+    "Blueprint-style collage of technical sportswear garments, tech packs and fabric swatches",
+  journeyLabel: "Your product development journey",
+  steps: [
     {
       number: "01",
-      tag: "Brief",
-      title: "Reference",
-      description: "Product, artwork and requirements.",
-      image: images.productDevelopment.reference,
-      imageAlt: "Fabric swatches, a technical flat and a reference photo",
+      title: "Share your idea",
+      description:
+        "Send your design, inspiration images, tech pack or a brief describing the product you want to make.",
+      icon: "pencil",
+      detail: { label: "You provide", value: "Concept, artwork or reference" },
     },
     {
       number: "02",
-      tag: "Material",
-      title: "Specification",
-      description: "Fabric, trims, colors and measurements.",
-      image: images.productDevelopment.specification,
-      imageAlt: "Pattern software showing a garment specification",
+      title: "Confirm details",
+      description:
+        "Review fabric, trims, measurements, colours and construction details so everyone works to the same brief.",
+      icon: "book",
+      detail: { label: "We align on", value: "Product specifications" },
     },
     {
       number: "03",
-      tag: "Construction",
-      title: "Garment",
-      description: "Fit, panels, seams and finishing.",
-      image: images.productDevelopment.garment,
-      imageAlt: "Hands guiding fabric through an industrial sewing machine",
+      title: "Review sample",
+      description:
+        "Assess the prototype for fit, look and feel. Share feedback and request adjustments where needed.",
+      icon: "file",
+      detail: { label: "We refine", value: "Fit and finish" },
     },
     {
       number: "04",
-      tag: "Approval",
-      title: "Finishing",
-      description: "Approved sample becomes the benchmark.",
-      image: images.productDevelopment.finishing,
-      imageAlt: "Inspecting a finished sample against an approval checklist",
+      title: "Approve for production",
+      description:
+        "Once the sample and specifications are approved, the product can move toward bulk production.",
+      icon: "check",
+      detail: { label: "Next stage", value: "Bulk manufacturing" },
     },
-  ] satisfies DevelopmentItem[],
+  ] satisfies DevelopmentStep[],
+  flow: ["Idea", "Specifications", "Sample", "Approval"],
+  footer: {
+    strong: "Clear expectations. Fewer surprises.",
+    note: "Key decisions are reviewed before bulk production, helping keep the final product aligned with the approved brief.",
+    cta: { label: "Discuss your project", to: "/contact" },
+  },
 };

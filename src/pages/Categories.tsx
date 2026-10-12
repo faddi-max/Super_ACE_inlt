@@ -2,6 +2,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { BuyerTypes } from "@/components/sections/BuyerTypes";
 import { CategoriesHero } from "@/components/sections/CategoriesHero";
 import { CategoriesIntro } from "@/components/sections/CategoriesIntro";
+import { CustomerJourney } from "@/components/sections/CustomerJourney";
 import { Customization } from "@/components/sections/Customization";
 
 import { FAQ } from "@/components/sections/FAQ";
@@ -22,10 +23,13 @@ export default function Categories() {
       <div id="categories" />
        <SportProducts />
        <ProductDevelopment />
+       <HowWeManufacture />
+        <CustomerJourney />
+          <BuyerTypes />
        <Customization />
         <ManufacturingVisuals />
-         <BuyerTypes />
-         <HowWeManufacture />
+       
+        
         
           <Testimonials />
               <FAQ />

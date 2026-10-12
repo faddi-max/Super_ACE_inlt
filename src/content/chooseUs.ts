@@ -1,57 +1,100 @@
-import customManufacturing from "@/assets/images/choose-us/custom-manufacturing.jpg";
-import apparelRange from "@/assets/images/choose-us/apparel-range.jpg";
-import garmentCraft from "@/assets/images/choose-us/garment-craft.jpg";
-import apparelCollection from "@/assets/images/choose-us/apparel-collection.jpg";
+export type DescriptionPart = { text: string; bold?: boolean };
 
 export type ChooseUsItem = {
+  number: string;
   title: string;
-  description: string;
-  image: string;
+  description: DescriptionPart[];
+  /** Shown only while the row is active */
+  cta?: { label: string; to: string };
 };
 
 export const chooseUsContent = {
-  eyebrow: "Choose Us",
+  eyebrow: "Why choose Super Ace",
   titleLead: "Why Choose",
-  titleAccent: "Super Ace",
+  titleAccent: "Super Ace?",
   description:
-    "We combine technical sportswear manufacturing, controlled quality and custom development to deliver with confidence for global brands.",
+    "From premium fabric and stitching quality to flexible customization and worldwide export, Super Ace brings the manufacturing advantages brands need to move from product idea to finished sportswear.",
+  cta: { label: "Start a Project", to: "/contact" },
+  tag: "Manufacturing Advantage",
+  tagline: [
+    { text: "Quality. " },
+    { text: "Flexibility.", accent: true },
+    { text: " Global Reach." },
+  ] satisfies { text: string; accent?: boolean }[],
+  footerNote: "Super Ace International",
   items: [
     {
-      title: "Custom Manufacturing",
-      description:
-        "Custom sportswear developed around your designs, specifications, branding and performance requirements.",
-      image: garmentCraft,
+      number: "01",
+      title: "Premium Fabric",
+      description: [
+        {
+          text: "Premium fabric selected for sportswear performance and product requirements.",
+        },
+      ],
+      cta: { label: "Explore", to: "/capabilities" },
     },
     {
-      title: "Quality Control",
-      description:
-        "Defined inspection points help maintain consistency across materials, construction, finishing and final orders.",
-      image: customManufacturing,
+      number: "02",
+      title: "Best Stitching Quality",
+      description: [
+        {
+          text: "Best stitching quality for clean construction and a consistent finished garment.",
+        },
+      ],
     },
     {
-      title: "Performance Textiles",
-      description:
-        "Technical fabric and construction solutions selected for fit, comfort, durability and performance.",
-      image: apparelRange,
+      number: "03",
+      title: "2 Weeks Turnaround Time",
+      description: [
+        { text: "A " },
+        { text: "2 weeks", bold: true },
+        { text: " turnaround time identified by the client as a key advantage." },
+      ],
     },
     {
-      title: "Specification Driven",
-      description:
-        "Every production program is aligned with approved product details, technical requirements and brand standards.",
-      image: apparelCollection,
-    },
-    // Placeholder copy – replace with approved content
-    {
-      title: "Export Ready",
-      description:
-        "Packing, documentation and delivery planning aligned with international shipping requirements.",
-      image: customManufacturing,
+      number: "04",
+      title: "Quality Inspection System",
+      description: [
+        {
+          text: "A quality inspection system supporting consistent production and finished products.",
+        },
+      ],
     },
     {
-      title: "Flexible Development",
-      description:
-        "From samples to bulk production, programs are developed to suit your brand and order volumes.",
-      image: garmentCraft,
+      number: "05",
+      title: "Full Customization",
+      description: [
+        { text: "Full " },
+        { text: "OEM / ODM / PL", bold: true },
+        { text: " customization for brand-specific requirements." },
+      ],
+    },
+    {
+      number: "06",
+      title: "29+ Years of Experience",
+      description: [
+        { text: "More than " },
+        { text: "29 years", bold: true },
+        { text: " of experience listed as a Super Ace advantage." },
+      ],
+    },
+    {
+      number: "07",
+      title: "Low MOQ",
+      description: [
+        {
+          text: "Low MOQ gives brands greater flexibility when developing and ordering products.",
+        },
+      ],
+    },
+    {
+      number: "08",
+      title: "Worldwide Export",
+      description: [
+        {
+          text: "Worldwide export capability for brands serving international markets.",
+        },
+      ],
     },
   ] satisfies ChooseUsItem[],
 };

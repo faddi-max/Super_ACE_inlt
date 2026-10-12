@@ -2,38 +2,52 @@ export type BuyerItem = {
   number: string;
   title: string;
   description: string;
+  to: string;
 };
 
 export const buyersContent = {
-  // Eyebrow read from a small screenshot – verify
-  eyebrow: "Global fit",
-  title: ["Build for", "Different Buyers."],
-  // Placeholder descriptions – replace with approved content
+  eyebrow: "Global B2B",
+  titleLines: [
+    [{ text: "Built for " }, { text: "Different", accent: true }],
+    [{ text: "Buyers." }],
+  ] satisfies { text: string; accent?: boolean }[][],
+  description:
+    "Whether you're building a brand, outfitting a team or supplying a market, Super Ace supports your needs with tailored sportswear manufacturing.",
   items: [
     {
       number: "01",
       title: "Brands",
-      description: "Custom sportswear collections developed around your brand.",
+      description:
+        "Custom collections and private-label products developed around your brand identity.",
+      to: "/contact",
     },
     {
       number: "02",
       title: "Teams & Clubs",
-      description: "Teamwear and uniform programs for clubs and organizations.",
+      description:
+        "Sports-specific apparel and coordinated kits for teams, clubs and training programs.",
+      to: "/contact",
     },
     {
       number: "03",
       title: "Organizations",
-      description: "Branded apparel for institutions, events and corporate use.",
+      description:
+        "Performance apparel and coordinated products for organizations and group programs.",
+      to: "/contact",
     },
     {
       number: "04",
       title: "Distributors",
-      description: "Consistent bulk supply for regional distribution.",
+      description:
+        "Manufacturing support for resellers and commercial sportswear collections.",
+      to: "/contact",
     },
     {
       number: "05",
       title: "International Buyers",
-      description: "Export-ready production for global sourcing programs.",
+      description:
+        "Export-oriented production coordination, packing and order preparation.",
+      to: "/contact",
     },
   ] satisfies BuyerItem[],
 };

@@ -46,10 +46,11 @@ export default function Home() {
       <QualityControl />
     <ComplianceSafety />
      <ExportMarket />
-     {/* <ChooseUs /> */}
+     <ChooseUs />
       <Certifications />
-      <Testimonials />
       <ResourcesInsights />
+      <Testimonials />
+      
       <FAQ />
       <CTASection />
     </PageLayout>
