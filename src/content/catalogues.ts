@@ -36,7 +36,6 @@ export const cataloguesContent = {
       file: "/catalogues/performance-apparel.pdf",
       image: images.fitness,
     },
-  
     {
       number: "03",
       title: "Outerwear & Jackets",
@@ -50,10 +49,28 @@ export const cataloguesContent = {
       number: "04",
       title: "Accessories",
       description:
-        "The key capabilities, communication and production factors buyers should evaluate before starting a manufacturing program.",
+        "Caps, bags, gloves and supporting products that complete a sportswear collection.",
       meta: "PDF · 12 MB",
       file: "/catalogues/accessories.pdf",
       image: images.combat,
+    },
+    {
+      number: "05",
+      title: "Combat Sports",
+      description:
+        "Performance apparel and gear built for boxing, MMA, judo and karate programs.",
+      meta: "PDF · 12 MB",
+      file: "/catalogues/combat-sports.pdf",
+      image: images.combat,
+    },
+    {
+      number: "06",
+      title: "Uniforms",
+      description:
+        "Coordinated uniform programs for clubs, schools and organizations, built around your specification.",
+      meta: "PDF · 12 MB",
+      file: "/catalogues/uniforms.pdf",
+      image: images.teamwear,
     },
   ] satisfies CatalogueItem[],
 };

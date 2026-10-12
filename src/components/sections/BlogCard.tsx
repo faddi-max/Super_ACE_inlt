@@ -6,10 +6,10 @@ type BlogCardProps = { post: BlogPost; number: number };
 
 export function BlogCard({ post, number }: BlogCardProps) {
   return (
-    <Link
-      className="group relative flex h-[360px] flex-col justify-end overflow-hidden rounded-[3px] bg-navy outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-electric sm:h-[400px] lg:h-[420px]"
-      to={post.to}
-    >
+<Link
+  className="group relative flex h-[360px] flex-col justify-end overflow-hidden rounded-[3px] bg-navy outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-electric sm:h-[400px] lg:h-[420px]"
+  to={`/blogs/${post.slug}`}
+>
       <img
         alt=""
         aria-hidden="true"

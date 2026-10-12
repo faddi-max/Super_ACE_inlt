@@ -8,6 +8,17 @@ export type CertificationItem = {
   imageAlt: string;
 };
 
+export const certificationsGridItems: CertificationItem[] = Array.from(
+  { length: 10 },
+  (_, i) => ({
+    number: String(i + 1).padStart(2, "0"),
+    title: "ISO 9001:2015",
+    description: "Quality Management\nSystem Certified",
+    image: iso,
+    imageAlt: "ISO 9001:2015 certified badge",
+  }),
+);
+
 export const certificationsContent = {
   eyebrow: "Certifications",
   titleLead: "Trust &",

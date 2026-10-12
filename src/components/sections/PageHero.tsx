@@ -45,13 +45,14 @@ export function PageHero({ content: c }: PageHeroProps) {
       />
 
       <Container className="flex min-w-0 max-w-360 flex-col items-center px-5 py-14 text-center sm:px-8 sm:py-16 lg:px-30 lg:py-20">
-        <p
-          className="hero-rise flex min-w-0 flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center font-sans text-ui-label font-extrabold uppercase tracking-[0.12em] text-white"
-          style={delay(150)}
-        >
-          <Parts parts={c.eyebrow} />
-        </p>
-
+   {c.eyebrow && c.eyebrow.length > 0 && (
+  <p
+    className="hero-rise flex min-w-0 flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center font-sans text-ui-label font-extrabold uppercase tracking-[0.12em] text-white"
+    style={delay(150)}
+  >
+    <Parts parts={c.eyebrow} />
+  </p>
+)}
         <h1
           className="hero-rise mt-4 w-full min-w-0 max-w-full text-balance font-display text-[clamp(2.25rem,10vw,5rem)] font-bold uppercase leading-[0.95] tracking-[0.02em] [overflow-wrap:anywhere] sm:mt-5 sm:tracking-[0.44px] lg:leading-[72px]"
           id="page-hero-title"

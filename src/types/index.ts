@@ -7,6 +7,7 @@ export type PageCopy = {
 export type NavigationItem = {
   label: string;
   to: string;
+  children?: { label: string; to: string }[];
 };
 
 export type Pillar = {
@@ -19,8 +20,8 @@ export type HeroPart = { text: string; accent?: boolean };
 export type PageHeroContent = {
   image: string;
   imageAlt: string;
-  eyebrow: HeroPart[];
-  /** One array per visible line; parts inside a line can be accented */
+  eyebrow?: HeroPart[];
+
   titleLines: HeroPart[][];
   description: string;
   stats?: { value: string; label: string }[];

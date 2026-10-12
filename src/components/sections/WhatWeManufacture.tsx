@@ -16,7 +16,7 @@ export function WhatWeManufacture() {
       <CursorGlow />
       <div className="mx-auto grid w-full max-w-360 gap-10 px-6 lg:grid-cols-[280px_900px] lg:gap-0 lg:px-30">
         <Reveal className="lg:pt-[30px]">
-          <Eyebrow className="text-[10px] leading-[4px] tracking-[0.05em]">
+          <Eyebrow className="text-[10px] leading-[4fpx] tracking-[0.05em]">
             {c.eyebrow}
           </Eyebrow>
 

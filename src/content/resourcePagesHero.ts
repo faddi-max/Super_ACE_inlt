@@ -1,0 +1,41 @@
+import type { PageHeroContent } from "@/types";
+import { resourcesHeroContent } from "@/content/resourcesHero";
+
+const base = {
+  image: resourcesHeroContent.image,
+  imageAlt: resourcesHeroContent.imageAlt,
+};
+export const compliancesHeroContent: PageHeroContent = {
+  ...base,
+  titleLines: [[{ text: "Compliances" }]],
+  description:
+    "Committed to quality, responsible manufacturing, and customer requirements, we support international brands with a focus on consistent standards and dependable production practices.",
+};
+
+export const catalogueHeroContent: PageHeroContent = {
+  ...base,
+  titleLines: [[{ text: "Catalogues" }]],
+  description:
+    "Explore our product catalogues to discover sportswear styles, product options, and custom manufacturing solutions tailored to your brand's needs.",
+};
+
+export const logisticsHeroContent: PageHeroContent = {
+  ...base,
+  titleLines: [[{ text: "Logistic" }, { text: "Partners", accent: true }]],
+  description:
+    "Reliable logistics are an essential part of getting every order from production to destination. Super Ace works with established shipping and freight partners to support smooth, coordinated deliveries for international buyers.",
+};
+
+export const technologyHeroContent: PageHeroContent = {
+  ...base,
+  titleLines: [[{ text: "Technology" }, { text: "Partners", accent: true }]],
+  description:
+    "Precision machinery, design software and IT infrastructure from trusted global technology leaders power every stage of Super Ace production.",
+};
+export const futureHeroContent: PageHeroContent = {
+  ...base,
+  eyebrow: [{ text: "Resources" }, { text: "/" }, { text: "Future With Us", accent: true }],
+  titleLines: [[{ text: "Built to grow with" }], [{ text: "Global brands.", accent: true }]],
+  description:
+    "Four principles shape every garment we make and every partnership we build.",
+};

@@ -5,10 +5,10 @@ export type ProcessStep = {
 };
 
 export const conceptToExportContent = {
-  eyebrow: "From concept to export",
-  titleLead: "From Concept to Export,",
-  titleAccent: "Engineered",
-  titleRest: "Under Control.",
+  eyebrow: "Where We Work",
+  titleLead: "Our Facilities ",
+  titleAccent: "& Offices.",
+ 
   description:
     "A disciplined production system built around specification, consistency and performance from the first product brief through final export preparation.",
   panelLabel: "Manufacturing Process",

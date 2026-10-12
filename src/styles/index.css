@@ -230,7 +230,33 @@
       var(--color-navy) 0%,
       color-mix(in srgb, var(--color-electric) 5%, var(--color-navy)) 100%
     );
+  --background-image-post-hero: radial-gradient(
+    127.23% 152.2% at 23.58% 0%,
+    color-mix(in srgb, var(--color-electric) 25%, transparent) 42.58%,
+    color-mix(in srgb, var(--color-navy) 25%, transparent) 77%
+  );
+    --background-image-departments-glow: radial-gradient(
+    80% 45% at 25% 55%,
+    color-mix(in srgb, var(--color-electric) 20%, transparent) 0%,
+    transparent 100%
+  );
+  --color-ice-start: #e8edf2;
+--color-ice-end: #f8f9fa;
+--background-image-infrastructure-panel: linear-gradient(
+  135deg,
+  var(--color-ice-start) 0%,
+  var(--color-ice-end) 100%
+);
+  --background-image-blueprint-grid:
+  linear-gradient(90deg, color-mix(in srgb, var(--color-electric) 8%, transparent) 0.15%, transparent 0.15%),
+  linear-gradient(180deg, color-mix(in srgb, var(--color-electric) 8%, transparent) 0.18%, transparent 0.18%);
+    --color-hairline: #dce5eb;
 
+  --background-image-journey-glow: radial-gradient(
+    28% 55% at 0% 45%,
+    color-mix(in srgb, var(--color-electric) 7%, transparent) 0%,
+    transparent 100%
+  );
   --font-display: "Barlow Condensed", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
   --font-sans: "Montserrat", sans-serif;

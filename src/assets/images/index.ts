@@ -35,7 +35,7 @@ export const images = {
   about: imagesByName.about,
   combat: imagesByName.combat,
   fitness: imagesByName.fitness,
-  factoryFloor: imagesByName["factory-floor"],
+  factoryFloor: imagesByName.factoryFloor,
   homehero: imagesByName.homehero,
   herooveraly: imagesByName.herooveraly,
   partnerlogo1: imagesByName.partnerlogo1,

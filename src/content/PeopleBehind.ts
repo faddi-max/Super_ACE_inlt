@@ -42,5 +42,30 @@ export const peopleBehindContent = {
       description: "Ensures every piece meets the standard.",
       image: images.team["ahmed-ali"],
     },
+     {
+      name: "Usman Arshad Ch.",
+      role: "Founder & CEO",
+      description: "Leads strategy and global partnerships.",
+      image: images.team["usman-arshad"],
+    },
+    {
+      name: "M. Usman Jameel",
+      role: "General Manager (GM)",
+      description: "Oversees cutting, stitching and finishing.",
+      image: images.team["usman-jameel"],
+    },
+    {
+      name: "Rizwan Ahmed",
+      role: "Products Development Head",
+      description: "Turns concepts into production-ready tech sheets.",
+      image: images.team["rizwan-ahmed"],
+    },
+    {
+      name: "Ahmed Ali",
+      role: "Merchandising Head",
+      // Screenshot text was small, verify wording
+      description: "Ensures every piece meets the standard.",
+      image: images.team["ahmed-ali"],
+    },
   ] satisfies TeamMember[],
 };

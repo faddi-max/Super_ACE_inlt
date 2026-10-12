@@ -7,8 +7,10 @@ import { ChooseUs } from "@/components/sections/ChooseUs";
 import { ComplianceSafety } from "@/components/sections/ComplianceSafety";
 import { ConceptToExport } from "@/components/sections/ConceptToExport";
 import { CTASection } from "@/components/sections/CTASection";
+import { CustomerJourney } from "@/components/sections/CustomerJourney";
 // import { CustomSolutions } from "@/components/sections/CustomSolutions";
 import { ExportMarket } from "@/components/sections/ExportMarket";
+import { Facilities } from "@/components/sections/Facilities";
 import { FactoryTour } from "@/components/sections/FactoryTour";
 import { FAQ } from "@/components/sections/FAQ";
 import { Hero } from "@/components/sections/Hero";
@@ -28,18 +30,23 @@ export default function Home() {
       <Hero />
       <TrustedPartners />
       <AboutSection />
-      <ChooseUs />
        <Industries />
-      <CategoriesSlider />
+        <CategoriesSlider />
+          
        <HowWeManufacture />
-       <FactoryTour />
-       <ConceptToExport />
+       <CustomerJourney />
+        <FactoryTour />
+      
+      
+   
+      
+       <Facilities />
          <WhatWeManufacture />
       <Capabilities />
       <QualityControl />
     <ComplianceSafety />
      <ExportMarket />
-     
+     {/* <ChooseUs /> */}
       <Certifications />
       <Testimonials />
       <ResourcesInsights />
