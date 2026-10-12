@@ -247,6 +247,22 @@
   var(--color-ice-start) 0%,
   var(--color-ice-end) 100%
 );
+--background-image-floor-band: linear-gradient(
+  251.3deg,
+  var(--color-electric) -15.06%,
+  var(--color-navy) 19.8%
+);
+--background-image-floor-photo-overlay:
+  linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-navy) 4%, transparent) 0%,
+    color-mix(in srgb, var(--color-navy) 72%, transparent) 100%
+  ),
+  linear-gradient(
+    0deg,
+    color-mix(in srgb, black 22%, transparent),
+    color-mix(in srgb, black 22%, transparent)
+  );
   --background-image-blueprint-grid:
   linear-gradient(90deg, color-mix(in srgb, var(--color-electric) 8%, transparent) 0.15%, transparent 0.15%),
   linear-gradient(180deg, color-mix(in srgb, var(--color-electric) 8%, transparent) 0.18%, transparent 0.18%);

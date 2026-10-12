@@ -9,7 +9,12 @@ export type NavigationItem = {
   to: string;
   children?: { label: string; to: string }[];
 };
-
+export type NavItem = {
+  label: string;
+  to: string;
+  children?: { label: string; to: string }[];
+  mega?: "capabilities";
+};
 export type Pillar = {
   title: string;
   description: string;

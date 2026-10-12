@@ -17,7 +17,7 @@ export default function Resources() {
     <PageLayout>
       <PageHero content={resourcesHeroContent} />
       <div id="resources-list" />
-  <AboutSection isresoursepage={true} />
+  <AboutSection isaboutpage={true} />
   <PeopleBehind />
   <CatalogueDownloads />
   <LogisticsPartners />

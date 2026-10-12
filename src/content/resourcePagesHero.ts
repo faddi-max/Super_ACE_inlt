@@ -34,8 +34,7 @@ export const technologyHeroContent: PageHeroContent = {
 };
 export const futureHeroContent: PageHeroContent = {
   ...base,
-  eyebrow: [{ text: "Resources" }, { text: "/" }, { text: "Future With Us", accent: true }],
-  titleLines: [[{ text: "Built to grow with" }], [{ text: "Global brands.", accent: true }]],
+  titleLines: [[{ text: "Future" }, { text: "With Us", accent: true }]],
   description:
-    "Four principles shape every garment we make and every partnership we build.",
+    "Committed to quality, responsible manufacturing, and customer requirements, we support international brands with a focus on consistent standards and dependable production practices.",
 };

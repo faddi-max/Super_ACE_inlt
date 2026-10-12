@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { CapabilitiesMegaMenu } from "@/components/layout/CapabilitiesMegaMenu";
 import { navigation, resourcesMenuLabel } from "@/config/navigation";
 import { cn } from "@/lib/cn";
 
@@ -10,7 +11,8 @@ type NavProps = {
 
 /**
  * Resources dropdown (Figma): 210 × 381 · padding 10 · gap 10 · white
- * Opens on hover and keyboard focus (desktop); listed inline on mobile.
+ * Capabilities mega menu: full-width panel anchored to the header.
+ * Both open on hover and keyboard focus (desktop); listed inline on mobile.
  */
 export function Nav({ className, onNavigate }: NavProps) {
   const { pathname, hash } = useLocation();
@@ -21,7 +23,10 @@ export function Nav({ className, onNavigate }: NavProps) {
       <ul className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-7">
         {navigation.map((item) => (
           <li
-            className={cn(item.children && "group/dd relative")}
+            className={cn(
+              item.mega && "group/mm lg:static",
+              !item.mega && item.children && "group/dd relative",
+            )}
             key={item.to}
           >
             <NavLink
@@ -31,6 +36,7 @@ export function Nav({ className, onNavigate }: NavProps) {
               className={({ isActive }) =>
                 cn(
                   "font-montserrat text-[10px] font-bold uppercase leading-[14px] tracking-[1.2px] align-middle transition-colors hover:text-electric",
+                  item.mega && "lg:group-hover/mm:text-electric lg:group-focus-within/mm:text-electric",
                   isActive ? "text-electric" : "text-white",
                 )
               }
@@ -38,7 +44,11 @@ export function Nav({ className, onNavigate }: NavProps) {
               {item.label}
             </NavLink>
 
-            {item.children && (
+            {item.mega === "capabilities" && (
+              <CapabilitiesMegaMenu onNavigate={onNavigate} />
+            )}
+
+            {!item.mega && item.children && (
               <div className="mt-3 lg:invisible lg:absolute lg:left-0 lg:top-full lg:z-50 lg:mt-0 lg:translate-y-1 lg:pt-5 lg:opacity-0 lg:transition-[opacity,translate,visibility] lg:duration-300 lg:ease-smooth lg:group-focus-within/dd:visible lg:group-focus-within/dd:translate-y-0 lg:group-focus-within/dd:opacity-100 lg:group-hover/dd:visible lg:group-hover/dd:translate-y-0 lg:group-hover/dd:opacity-100 motion-reduce:lg:transition-none">
                 <div className="border-l border-white/15 pl-4 lg:h-[381px] lg:w-[210px] lg:border-l-0 lg:bg-white lg:p-2.5 lg:pl-2.5 lg:shadow-xl lg:shadow-navy/30">
                   <div className="lg:px-1.5 lg:pt-[21px]">

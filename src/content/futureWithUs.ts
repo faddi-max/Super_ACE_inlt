@@ -1,9 +1,13 @@
+import { images } from "@/assets/images";
+import stitching from "@/assets/images/capabilities/stitching.png";
+
 export type Principle = {
   number: string;
   title: string;
   subtitle: string;
   description: string;
   label: string;
+  image: string;
 };
 
 export type Highlight = { title: string; description: string };
@@ -16,6 +20,7 @@ export const futureWithUsContent = {
   ] satisfies { text: string; accent?: boolean }[],
   description:
     "Four principles shape every garment we make and every partnership we build so your brand can scale with a manufacturer that engineers performance and delivers export excellence.",
+  // Card photos are placeholders from existing assets – swap for the design images
   principles: [
     {
       number: "01",
@@ -24,6 +29,7 @@ export const futureWithUsContent = {
       description:
         "Clean, aerodynamic silhouettes engineered for motion — developed from your concept or tech pack.",
       label: "Engineered for motion",
+      image: images["sports-apparel"],
     },
     {
       number: "02",
@@ -32,6 +38,7 @@ export const futureWithUsContent = {
       description:
         "Products aligned with human velocity and high performance, built for demanding sports environments.",
       label: "Aligned with performance",
+      image: images.fitness,
     },
     {
       number: "03",
@@ -40,6 +47,7 @@ export const futureWithUsContent = {
       description:
         "Zero-defect tolerance, laser bonding and fine seams — precision finishing on every order.",
       label: "Zero-defect tolerance",
+      image: stitching,
     },
     {
       number: "04",
@@ -48,6 +56,7 @@ export const futureWithUsContent = {
       description:
         "Moisture-wicking polymers and high tensile durability that hold up across extreme conditions.",
       label: "High tensile durability",
+      image: images.factoryFloor,
     },
   ] satisfies Principle[],
   highlights: [

@@ -1,12 +1,12 @@
-import type { NavigationItem } from "@/types";
+import type { NavItem } from "@/types";
 
 export const resourcesMenuLabel = "Resources";
 
-export const navigation: NavigationItem[] = [
+export const navigation: NavItem[] = [
   { label: "Home", to: "/" },
-  { label: "Products", to: "/products" },
+  { label: "Categories", to: "/categories" },
   { label: "Process", to: "/process" },
-  { label: "Capabilities", to: "/capabilities" },
+  { label: "Capabilities", to: "/capabilities", mega: "capabilities" },
   {
     label: "Resources",
     to: "/resources/our-team",
