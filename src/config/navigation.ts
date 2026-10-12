@@ -4,7 +4,7 @@ export const resourcesMenuLabel = "Resources";
 
 export const navigation: NavItem[] = [
   { label: "Home", to: "/" },
-  { label: "Categories", to: "/categories" },
+ { label: "Categories", to: "/categories", mega: "categories" },
   { label: "Process", to: "/process" },
   { label: "Capabilities", to: "/capabilities", mega: "capabilities" },
   {

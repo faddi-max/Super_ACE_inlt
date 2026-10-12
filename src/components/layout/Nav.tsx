@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CapabilitiesMegaMenu } from "@/components/layout/CapabilitiesMegaMenu";
+import { CategoriesMegaMenu } from "@/components/layout/CategoriesMegaMenu";
 import { navigation, resourcesMenuLabel } from "@/config/navigation";
 import { cn } from "@/lib/cn";
 
@@ -11,8 +12,8 @@ type NavProps = {
 
 /**
  * Resources dropdown (Figma): 210 × 381 · padding 10 · gap 10 · white
- * Capabilities mega menu: full-width panel anchored to the header.
- * Both open on hover and keyboard focus (desktop); listed inline on mobile.
+ * Capabilities + Categories mega menus: full-width panels anchored to the header.
+ * All open on hover and keyboard focus (desktop); listed inline on mobile.
  */
 export function Nav({ className, onNavigate }: NavProps) {
   const { pathname, hash } = useLocation();
@@ -36,7 +37,10 @@ export function Nav({ className, onNavigate }: NavProps) {
               className={({ isActive }) =>
                 cn(
                   "font-montserrat text-[10px] font-bold uppercase leading-[14px] tracking-[1.2px] align-middle transition-colors hover:text-electric",
-                  item.mega && "lg:group-hover/mm:text-electric lg:group-focus-within/mm:text-electric",
+                  // Mega items: highlight on hover/focus + an invisible bridge under
+                  // the label so the pointer can reach the panel without it closing
+                  item.mega &&
+                    "lg:relative lg:inline-block lg:group-hover/mm:text-electric lg:group-focus-within/mm:text-electric lg:after:absolute lg:after:inset-x-0 lg:after:top-full lg:after:hidden lg:after:h-10 lg:after:content-[''] lg:group-hover/mm:after:block",
                   isActive ? "text-electric" : "text-white",
                 )
               }
@@ -46,6 +50,10 @@ export function Nav({ className, onNavigate }: NavProps) {
 
             {item.mega === "capabilities" && (
               <CapabilitiesMegaMenu onNavigate={onNavigate} />
+            )}
+
+            {item.mega === "categories" && (
+              <CategoriesMegaMenu onNavigate={onNavigate} />
             )}
 
             {!item.mega && item.children && (

@@ -13,7 +13,7 @@ export type NavItem = {
   label: string;
   to: string;
   children?: { label: string; to: string }[];
-  mega?: "capabilities";
+  mega?: "capabilities" | "categories";
 };
 export type Pillar = {
   title: string;
