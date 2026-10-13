@@ -51,3 +51,4 @@ export const certificationsContent = {
     },
   ] satisfies CertificationItem[],
 };
+export const certificationsGridItems = certificationsContent.items;

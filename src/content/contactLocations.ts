@@ -1,4 +1,4 @@
-export type LocationDetail = { label: string; value: string; href?: string };
+﻿export type LocationDetail = { label: string; value: string; href?: string };
 
 export type LocationItem = {
   id: string;
@@ -76,5 +76,6 @@ export const contactLocationsContent = {
       ],
       mapQuery: "Wazirabad Road, Harrar, Sialkot, Pakistan",
     },
-  ] satisfies LocationItem[],
+  ] as LocationItem[],
 };
+

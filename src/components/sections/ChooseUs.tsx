@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CursorGlow, MaskLines, Reveal } from "@/components/animation";
@@ -109,7 +109,7 @@ export function ChooseUs() {
                         <span className="mt-1 block max-w-[480px] font-sans text-[9px] leading-[14px] text-mist sm:text-[10px]">
                           {item.description.map((part, pi) => (
                             <span
-                              className={cn(part.bold && "font-bold text-electric")}
+                              className={cn((part as { text: string; bold?: boolean }).bold && "font-bold text-electric")}
                               key={pi}
                             >
                               {part.text}

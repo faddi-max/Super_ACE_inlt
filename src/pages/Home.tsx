@@ -5,7 +5,7 @@ import { CategoriesSlider } from "@/components/sections/CategoriesSlider";
 import { Certifications } from "@/components/sections/Certifications";
 import { ChooseUs } from "@/components/sections/ChooseUs";
 import { ComplianceSafety } from "@/components/sections/ComplianceSafety";
-import { ConceptToExport } from "@/components/sections/ConceptToExport";
+
 import { CTASection } from "@/components/sections/CTASection";
 import { CustomerJourney } from "@/components/sections/CustomerJourney";
 // import { CustomSolutions } from "@/components/sections/CustomSolutions";

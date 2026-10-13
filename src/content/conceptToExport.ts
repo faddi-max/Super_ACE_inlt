@@ -1,4 +1,4 @@
-export type ProcessStep = {
+﻿export type ProcessStep = {
   number: string;
   title: string;
   description: string;
@@ -8,6 +8,7 @@ export const conceptToExportContent = {
   eyebrow: "Where We Work",
   titleLead: "Our Facilities ",
   titleAccent: "& Offices.",
+  titleRest: "Under Control.",
  
   description:
     "A disciplined production system built around specification, consistency and performance from the first product brief through final export preparation.",
@@ -67,3 +68,4 @@ export const conceptToExportContent = {
     },
   ] satisfies ProcessStep[],
 };
+

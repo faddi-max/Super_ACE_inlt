@@ -130,7 +130,7 @@ export function TechnologyPartnersGrid() {
                         className="absolute right-2 top-2 size-1.5 border-r border-t border-navy/25"
                       />
                       <PartnerMark
-                        logo={partner.logo}
+                        logo={''}
                         mark={partner.mark}
                         name={partner.name}
                       />
