@@ -8,6 +8,42 @@ import {
 } from "@/content/blogArticle";
 import { cn } from "@/lib/cn";
 
+import { useBlogImage } from "@/lib/useBlogImage";
+
+function ArticleImageBlock({
+  src,
+  alt,
+  caption,
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+}) {
+  const { src: imageSrc, onError } = useBlogImage(src, src);
+
+  return (
+    <Reveal className="motion-reveal--zoom mt-8">
+      <figure className="group">
+        <div className="aspect-[16/10] overflow-hidden rounded-[3px] bg-panel">
+          <img
+            alt={alt}
+            className="size-full object-cover transition-transform duration-[1400ms] ease-smooth motion-reduce:transition-none group-hover:scale-105"
+            decoding="async"
+            loading="lazy"
+            onError={onError}
+            src={imageSrc}
+          />
+        </div>
+        {caption && (
+          <figcaption className="mt-3 font-sans text-[8px] leading-3 text-mist">
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+    </Reveal>
+  );
+}
+
 function Block({ block }: { block: ArticleBlock }) {
   switch (block.type) {
     case "paragraph":
@@ -48,21 +84,11 @@ function Block({ block }: { block: ArticleBlock }) {
 
     case "image":
       return (
-        <Reveal className="motion-reveal--zoom mt-8">
-          <figure className="group">
-            <div className="aspect-[16/10] overflow-hidden bg-panel">
-              <img
-                alt={block.alt}
-                className="size-full object-cover transition-transform duration-[1400ms] ease-smooth motion-reduce:transition-none group-hover:scale-105"
-                loading="lazy"
-                src={block.src}
-              />
-            </div>
-            <figcaption className="mt-3 font-sans text-[8px] leading-3 text-mist">
-              {block.caption}
-            </figcaption>
-          </figure>
-        </Reveal>
+        <ArticleImageBlock
+          alt={block.alt}
+          caption={block.caption}
+          src={block.src}
+        />
       );
 
     case "steps":
@@ -113,7 +139,15 @@ function Block({ block }: { block: ArticleBlock }) {
   }
 }
 
-function Chapter({ section }: { section: ArticleSection }) {
+import type { ApiBlogPost } from "@/api";
+
+function Chapter({
+  section,
+  post,
+}: {
+  section: ArticleSection;
+  post?: ApiBlogPost | null;
+}) {
   return (
     <section
       className="scroll-mt-24 [&:not(:first-child)]:mt-16 lg:[&:not(:first-child)]:mt-[88px]"
@@ -142,6 +176,14 @@ function Chapter({ section }: { section: ArticleSection }) {
         </Heading>
       </Reveal>
 
+      {section.id === "decision-point" && post?.image && (
+        <ArticleImageBlock
+          alt={post.title}
+          caption={`${post.title} — Production and technical development`}
+          src={post.image}
+        />
+      )}
+
       {section.blocks.map((block, i) => (
         <Block block={block} key={i} />
       ))}
@@ -149,11 +191,11 @@ function Chapter({ section }: { section: ArticleSection }) {
   );
 }
 
-export function ArticleBlocks() {
+export function ArticleBlocks({ post }: { post?: ApiBlogPost | null }) {
   return (
     <>
       {c.sections.map((section) => (
-        <Chapter key={section.id} section={section} />
+        <Chapter key={section.id} post={post} section={section} />
       ))}
     </>
   );

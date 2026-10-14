@@ -1,5 +1,5 @@
-import { images } from "@/assets/images";
 import fabrics from "@/assets/images/resources/fabrics.jpg";
+import fitness from "@/assets/images/fitness.jpg";
 
 export type ArticleBlock =
   | { type: "paragraph"; text: string; emphasis?: "lead" | "strong" }
@@ -176,7 +176,7 @@ export const articleContent = {
         },
         {
           type: "image",
-          src: images.fitness,
+          src: fitness,
           alt: "Athletic training equipment in a gym",
           caption: "Production-floor discipline keeps every order consistent.",
         },

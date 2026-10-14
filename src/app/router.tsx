@@ -2,11 +2,13 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import About from "@/pages/About";
 import Capabilities from "@/pages/Capabilities";
+import CapabilityDetail from "@/pages/CapabilityDetail";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
 import Process from "@/pages/Process";
 import Categories from "@/pages/Categories";
+import CategoryDetail from "@/pages/CategoryDetail";
 import { Blogs } from "@/pages/Blogs";
 import { SinglePageBlog } from "@/pages/SinglePageBlog";
 import { ProductInfrastructure } from "@/pages/ProductInfrastructure";
@@ -26,20 +28,27 @@ export function AppRouter() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+
+        {/* Capabilities: index + per-slug detail */}
         <Route path="/capabilities" element={<Capabilities />} />
+        <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
+
+        {/* Categories: index + parent + parent/child */}
         <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:slug" element={<CategoryDetail />} />
+        <Route path="/categories/:slug/:childSlug" element={<CategoryDetail />} />
+
         <Route path="/process" element={<Process />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:slug" element={<SinglePageBlog />} />
         <Route path="/productInfrastructure" element={<ProductInfrastructure />} />
-<Route path="/resources/catalogue" element={<Catalogue />} />
-<Route path="/resources/catalogue/:slug" element={<CatalogueBook />} />
 
         <Route path="/resources" element={<Navigate to="/resources/our-team" replace />} />
         <Route path="/resources/our-team" element={<OurTeam />} />
         <Route path="/resources/compliances" element={<Compliances />} />
         <Route path="/resources/catalogue" element={<Catalogue />} />
+        <Route path="/resources/catalogue/:slug" element={<CatalogueBook />} />
         <Route path="/resources/logistic-partners" element={<LogisticPartners />} />
         <Route path="/resources/technology-partners" element={<TechnologyPartnersPage />} />
         <Route path="/resources/future-with-us" element={<FutureWithUsPage />} />

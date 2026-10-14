@@ -10,4 +10,28 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  server: {
+    proxy: {
+      "/uploads": {
+        target: "https://augmented-glucose-platform.ngrok-free.dev",
+        changeOrigin: true,
+        secure: false,
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        },
+      },
+    },
+  },
+  preview: {
+    proxy: {
+      "/uploads": {
+        target: "https://augmented-glucose-platform.ngrok-free.dev",
+        changeOrigin: true,
+        secure: false,
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        },
+      },
+    },
+  },
 });

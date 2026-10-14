@@ -1,30 +1,47 @@
 import { useEffect, useState } from "react";
 
-export function useScrollSpy(ids: string[]) {
-  const [activeId, setActiveId] = useState(ids[0]);
+export function useScrollSpy(ids: string[], offset: number = 200) {
+  const [activeId, setActiveId] = useState(ids[0] || "");
 
   useEffect(() => {
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-    if (elements.length === 0) return;
+    const getElements = () =>
+      ids
+        .map((id) => document.getElementById(id))
+        .filter((el): el is HTMLElement => el !== null);
 
-    const visible = new Set<string>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) visible.add(entry.target.id);
-          else visible.delete(entry.target.id);
+    const onScroll = () => {
+      const elements = getElements();
+      if (elements.length === 0) return;
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // If scrolled to the bottom of the page, activate the last chapter
+      if (scrollY + windowHeight >= documentHeight - 150) {
+        setActiveId(elements[elements.length - 1].id);
+        return;
+      }
+
+      // Find the current active section based on scroll offset
+      let current = elements[0].id;
+      for (const el of elements) {
+        const top = el.getBoundingClientRect().top;
+        if (top <= offset) {
+          current = el.id;
+        } else {
+          break;
         }
-        const first = elements.find((el) => visible.has(el.id));
-        if (first) setActiveId(first.id);
-      },
-      { rootMargin: "-20% 0px -60% 0px" },
-    );
+      }
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, [ids]);
+      setActiveId(current);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [ids, offset]);
 
   return activeId;
 }

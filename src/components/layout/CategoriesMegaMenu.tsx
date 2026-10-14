@@ -2,20 +2,48 @@ import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { categoriesMegaMenuContent as c } from "@/content/megaMenu";
+import { useCategories } from "@/lib/useCategories";
+import type { ApiCategory } from "@/api";
 
 type Props = { onNavigate?: () => void };
 
 const open =
   "lg:group-hover/mm:visible lg:group-hover/mm:translate-y-0 lg:group-hover/mm:opacity-100 lg:group-focus-within/mm:visible lg:group-focus-within/mm:translate-y-0 lg:group-focus-within/mm:opacity-100";
 
+// ── Helpers ───────────────────────────────────────────────────────────────
+
+/** Map one API category into the MegaColumn shape the template already understands. */
+function apiCategoryToColumn(cat: ApiCategory) {
+  const parentTo = `/categories/${cat.slug}`;
+  return {
+    title: cat.name,
+    to: parentTo,
+    links: cat.children.map((child) => ({
+      label: child.name,
+      to: `/categories/${cat.slug}/${child.slug}`,
+    })),
+  };
+}
+
+// ── Component ─────────────────────────────────────────────────────────────
+
 export function CategoriesMegaMenu({ onNavigate }: Props) {
+  const { categories, status } = useCategories();
+
+  // While loading or on error, fall back to the static content columns so
+  // the menu always renders something useful.
+  const columns =
+    status === "success" && categories.length > 0
+      ? categories.map(apiCategoryToColumn)
+      : c.columns;
+
   return (
     <div
       className={`mt-3 lg:invisible lg:absolute lg:inset-x-0 lg:top-full lg:z-50 lg:mt-0 lg:translate-y-1 lg:border-b lg:border-navy/10 lg:bg-white lg:opacity-0 lg:shadow-xl lg:shadow-navy/30 lg:transition-[opacity,translate,visibility] lg:duration-300 lg:ease-smooth motion-reduce:lg:transition-none ${open}`}
     >
       {/* Mobile: inline list */}
       <ul className="flex flex-col gap-3 border-l border-white/15 pl-4 lg:hidden">
-        {c.columns.map((col) => (
+        {columns.map((col) => (
           <li key={col.to}>
             <Link
               className="font-montserrat text-[10px] font-semibold text-silver transition-colors hover:text-electric"
@@ -31,7 +59,7 @@ export function CategoriesMegaMenu({ onNavigate }: Props) {
       {/* Desktop: white multi-column panel */}
       <div className="mx-auto hidden w-full max-w-360 px-30 lg:block">
         <div className="grid grid-cols-4 gap-x-12 py-10">
-          {c.columns.map((col, i) => (
+          {columns.map((col, i) => (
             <div
               className="translate-y-3 opacity-0 transition-[opacity,translate] duration-500 ease-smooth group-focus-within/mm:translate-y-0 group-focus-within/mm:opacity-100 group-focus-within/mm:[transition-delay:var(--d)] group-hover/mm:translate-y-0 group-hover/mm:opacity-100 group-hover/mm:[transition-delay:var(--d)] motion-reduce:transition-none"
               key={col.to}

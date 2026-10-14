@@ -1,5 +1,6 @@
 import { images } from "@/assets/images";
 import factory from "@/assets/images/categories/hero.jpg";
+import factoryFloor from "@/assets/images/factory-floor.jpg";
 import garmentCraft from "@/assets/images/choose-us/garment-craft.jpg";
 import apparelRange from "@/assets/images/choose-us/apparel-range.jpg";
 import fabrics from "@/assets/images/resources/fabrics.jpg";
@@ -42,6 +43,12 @@ export const blogListContent = {
   searchLabel: "Search insights",
   searchPlaceholder: "Search insights...",
   empty: "No articles match your search.",
+  loading: "Loading articles...",
+  error: "Unable to load articles from server.",
+  retry: "Retry",
+  clearFilters: "Clear Filters",
+  paginationPrev: "Previous",
+  paginationNext: "Next",
   readLabel: "Read article",
   filters: [
     { id: "all", label: "All" },
@@ -60,8 +67,8 @@ export const blogListContent = {
     description:
       "A clear look at the decisions behind a performance garment — from technical development and material selection through production, inspection and final delivery.",
     cta: "Read article",
-    to: "/blog",
-    image: images.factoryFloor,
+    to: "/blogs/how-performancesportswear-movesfrom-conceptto-production",
+    image: factoryFloor,
     imageAlt: "Sewing line on the SUPER ACE production floor",
   },
   grid: {

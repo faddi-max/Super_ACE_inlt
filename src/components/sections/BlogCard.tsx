@@ -1,22 +1,41 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { blogListContent as c, type BlogPost } from "@/content/blogs";
+import type { ApiBlogPost } from "@/api";
+import garmentCraft from "@/assets/images/choose-us/garment-craft.jpg";
+import { useBlogImage } from "@/lib/useBlogImage";
 
-type BlogCardProps = { post: BlogPost; number: number };
+export type BlogCardItem = ApiBlogPost | BlogPost;
+
+type BlogCardProps = { post: BlogCardItem; number: number };
 
 export function BlogCard({ post, number }: BlogCardProps) {
+  const { src: imgSrc, onError } = useBlogImage(post.image, garmentCraft);
+
+  const categoryLabel =
+    "category" in post && typeof post.category === "object" && post.category !== null
+      ? post.category.name
+      : "categoryLabel" in post && post.categoryLabel
+        ? post.categoryLabel
+        : typeof post.category === "string"
+          ? post.category
+          : "Insight";
+
+  const destination = "to" in post && post.to ? post.to : `/blogs/${post.slug}`;
+
   return (
-<Link
-  className="group relative flex h-[360px] flex-col justify-end overflow-hidden rounded-[3px] bg-navy outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-electric sm:h-[400px] lg:h-[420px]"
-  to={`/blogs/${post.slug}`}
->
+    <Link
+      className="group relative flex h-[360px] flex-col justify-end overflow-hidden rounded-[3px] bg-navy outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-electric sm:h-[400px] lg:h-[420px]"
+      to={destination}
+    >
       <img
-        alt=""
+        alt={post.title || ""}
         aria-hidden="true"
         className="absolute inset-0 size-full scale-100 object-cover transition-transform duration-[1200ms] ease-smooth motion-reduce:transition-none group-hover:scale-110"
         decoding="async"
         loading="lazy"
-        src={post.image}
+        onError={onError}
+        src={imgSrc}
       />
       <span
         aria-hidden="true"
@@ -29,12 +48,12 @@ export function BlogCard({ post, number }: BlogCardProps) {
 
       <div className="relative p-6 transition-transform duration-500 ease-smooth motion-reduce:transition-none group-hover:-translate-y-1">
         <p className="font-sans text-[8px] font-extrabold uppercase leading-[10px] tracking-[0.15em] text-electric">
-          {String(number).padStart(2, "0")} / {post.categoryLabel}
+          {String(number).padStart(2, "0")} / {categoryLabel}
         </p>
         <h3 className="mt-3 max-w-[330px] font-display text-[30px] font-bold uppercase leading-[1] text-white">
           {post.title}
         </h3>
-        <p className="mt-2.5 max-w-[330px] font-sans text-[10px] leading-4 text-white/60 transition-colors duration-500 group-hover:text-white/80">
+        <p className="mt-2.5 max-w-[330px] font-sans text-[10px] leading-4 text-white/60 transition-colors duration-500 line-clamp-3 group-hover:text-white/80">
           {post.excerpt}
         </p>
         <span className="mt-4 flex items-center gap-2 font-sans text-[8px] font-extrabold uppercase leading-none tracking-[0.15em] text-white">

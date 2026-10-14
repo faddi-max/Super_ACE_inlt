@@ -3,12 +3,19 @@ import { Check, Link2 } from "lucide-react";
 import { articleContent as c } from "@/content/blogArticle";
 import { cn } from "@/lib/cn";
 
+import type { ApiBlogPost } from "@/api";
+
 const dt =
   "font-sans text-[8px] font-extrabold uppercase leading-[10px] tracking-[0.15em] text-mist";
 const shareButton =
   "flex size-[26px] items-center justify-center rounded-full border border-navy/15 font-sans text-[8px] font-semibold text-navy/70 transition-[border-color,color,transform] duration-300 ease-smooth hover:-translate-y-0.5 hover:border-electric hover:text-electric focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric motion-reduce:transition-none motion-reduce:hover:translate-y-0";
 
-export function ArticleMeta({ className }: { className?: string }) {
+type ArticleMetaProps = {
+  className?: string;
+  post?: ApiBlogPost | null;
+};
+
+export function ArticleMeta({ className, post }: ArticleMetaProps) {
   const [copied, setCopied] = useState(false);
   const url =
     typeof window === "undefined" ? "" : encodeURIComponent(window.location.href);
@@ -23,6 +30,26 @@ export function ArticleMeta({ className }: { className?: string }) {
     }
   };
 
+  const metaRows = post
+    ? [
+        {
+          label: "Filed under",
+          value: post.category?.name || "Product Development",
+          accent: true,
+        },
+        {
+          label: "Read time",
+          value: `${post.reading_minutes || 3} minutes`,
+          accent: false,
+        },
+        {
+          label: "Topic",
+          value: post.tags?.length ? post.tags.join(", ") : "Sportswear",
+          accent: false,
+        },
+      ]
+    : c.meta;
+
   return (
     <dl
       className={cn(
@@ -30,7 +57,7 @@ export function ArticleMeta({ className }: { className?: string }) {
         className,
       )}
     >
-      {c.meta.map((row) => (
+      {metaRows.map((row) => (
         <div
           className="lg:border-b lg:border-navy/10 lg:py-5 lg:first:pt-0"
           key={row.label}
