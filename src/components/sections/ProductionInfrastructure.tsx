@@ -1,20 +1,20 @@
+// src/components/sections/ProductionInfrastructure.tsx
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CursorGlow, Reveal } from "@/components/animation";
 import { productionInfrastructureContent as c } from "@/content/productionInfrastructure";
 
-
 export function ProductionInfrastructure() {
   return (
     <section
       aria-labelledby="production-infrastructure-title"
-      className="relative isolate overflow-hidden bg-white py-[60px] text-navy"
+      className="relative isolate overflow-hidden bg-white py-14 text-navy sm:py-16 lg:py-[60px]"
     >
-      {/* Decorative backdrop: rings 1440 × 1043.2 + blueprint grid (10% opacity) */}
+      {/* Decorative backdrop: rings scale with the viewport, blueprint grid at 10% */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <img
           alt=""
-          className="absolute left-1/2 top-1/2 h-[1043.2px] w-[1440px] max-w-none -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-1/2 h-auto w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 sm:w-[110%] lg:w-[1440px]"
           loading="lazy"
           src={c.rings}
         />
@@ -22,14 +22,14 @@ export function ProductionInfrastructure() {
       </div>
       <CursorGlow />
 
-      <div className="mx-auto w-full max-w-[1181.2px] px-5 sm:px-8 lg:px-0">
+      <div className="mx-auto w-full max-w-[1181px] px-5 sm:px-8 lg:px-0">
         <Reveal className="space-y-3 sm:space-y-4">
           <p className="font-sans text-[9px] font-extrabold uppercase leading-none tracking-[0.05em] text-electric sm:text-[10px]">
             {c.eyebrow}
           </p>
           <h2
             id="production-infrastructure-title"
-            className="font-display text-[34px] font-bold uppercase leading-[0.95] tracking-[0.3px] sm:text-[40px] lg:text-[44px] lg:leading-[39.16px] lg:tracking-[0.44px]"
+            className="font-display text-[32px] font-bold uppercase leading-[0.95] tracking-[0.3px] sm:text-[40px] lg:text-[44px] lg:leading-[39px] lg:tracking-[0.44px]"
           >
             <span className="block">
               {c.titleLead} <span className="text-electric">{c.titleAccent}</span>
@@ -38,36 +38,37 @@ export function ProductionInfrastructure() {
           </h2>
         </Reveal>
 
+        {/* Panel: stacks on small screens, side-by-side from lg */}
         <Reveal
-          className="mt-8 grid border border-navy/12 bg-white sm:mt-10 lg:mt-[54px] lg:h-[541.8px] lg:grid-cols-[529.04fr_652.16fr]"
+          className="mt-8 grid border border-navy/12 bg-white sm:mt-10 lg:mt-[54px] lg:grid-cols-[529fr_652fr]"
           delay={120}
         >
           {/* Left: infrastructure list */}
-          <div className="flex min-h-0 min-w-0 flex-col">
-            <p className="flex min-h-[64px] items-center border-b border-navy/10 px-6 font-sans text-[7px] font-extrabold uppercase leading-none tracking-[0.2em] text-steel sm:px-8 sm:text-[8px] lg:h-[76px] lg:px-[42px]">
+          <div className="flex min-w-0 flex-col">
+            <p className="flex min-h-[56px] items-center border-b border-navy/10 px-5 font-sans text-[7px] font-extrabold uppercase leading-none tracking-[0.2em] text-steel sm:min-h-[64px] sm:px-8 sm:text-[8px] lg:min-h-[76px] lg:px-[42px]">
               {c.panelLabel}
             </p>
-            <ul className="flex flex-1 flex-col lg:grid lg:grid-rows-[106px_106px_108px_1fr]">
+            <ul className="flex flex-col">
               {c.items.map((item, i) => (
                 <li
-                  className="min-h-0 border-b border-navy/10 last:border-b-0"
+                  className="border-b border-navy/10 last:border-b-0"
                   key={item.number}
                 >
-                  <Reveal className="h-full" delay={180 + i * 80}>
-                    <article className="group relative grid h-full grid-cols-[34px_minmax(0,1fr)] gap-x-3 px-6 py-6 transition-colors duration-500 ease-smooth hover:bg-electric/5 motion-reduce:transition-none sm:px-8 lg:grid-cols-[50px_minmax(0,1fr)] lg:gap-x-0 lg:px-[42px] lg:pb-0 lg:pt-[22px]">
+                  <Reveal delay={180 + i * 80}>
+                    <article className="group relative grid grid-cols-[28px_minmax(0,1fr)] gap-x-3 px-5 py-5 transition-colors duration-500 ease-smooth hover:bg-electric/5 motion-reduce:transition-none sm:grid-cols-[34px_minmax(0,1fr)] sm:px-8 sm:py-6 lg:grid-cols-[50px_minmax(0,1fr)] lg:gap-x-0 lg:px-[42px] lg:py-[22px]">
                       {/* Accent line sweeps down the left edge */}
                       <span
                         aria-hidden="true"
                         className="absolute inset-y-0 left-0 w-0.5 origin-top scale-y-0 bg-electric transition-transform duration-500 ease-smooth group-hover:scale-y-100 motion-reduce:transition-none"
                       />
-                      <span className="pt-1.5 font-display text-[14px] font-medium leading-none tabular-nums text-electric transition-transform duration-500 ease-smooth group-hover:translate-x-1 motion-reduce:transition-none sm:text-[16px]">
+                      <span className="pt-1 font-display text-[14px] font-medium leading-none tabular-nums text-electric transition-transform duration-500 ease-smooth group-hover:translate-x-1 motion-reduce:transition-none sm:pt-1.5 sm:text-[16px]">
                         {item.number}
                       </span>
                       <div className="min-w-0">
-                        <h3 className="font-display text-[26px] font-bold uppercase leading-none text-navy transition-transform duration-500 ease-smooth group-hover:translate-x-1 motion-reduce:transition-none sm:text-[28px]">
+                        <h3 className="font-display text-[22px] font-bold uppercase leading-none text-navy transition-transform duration-500 ease-smooth group-hover:translate-x-1 motion-reduce:transition-none sm:text-[26px] lg:text-[28px]">
                           {item.title}
                         </h3>
-                        <p className="mt-2 font-sans text-[10px] leading-[15px] text-steel">
+                        <p className="mt-2 font-sans text-[10px] leading-[15px] text-steel sm:text-[11px]">
                           {item.description}
                         </p>
                         <ul className="mt-3 flex flex-wrap gap-1.5">
@@ -88,13 +89,13 @@ export function ProductionInfrastructure() {
             </ul>
           </div>
 
-          {/* Right: visual, 652.16 × 541.8, min-height 440 */}
-          <div className="group/visual relative min-h-[440px] overflow-hidden border-t border-navy/10 bg-infrastructure-panel lg:min-h-0 lg:border-l lg:border-t-0">
-            <span className="absolute right-5 top-5 z-10 border border-navy/10 bg-white px-2.5 py-1.5 font-sans text-[7px] font-extrabold uppercase leading-none tracking-[0.15em] text-navy sm:text-[8px] lg:right-10 lg:top-[26px]">
+          {/* Right: visual panel */}
+          <div className="group/visual relative aspect-[4/3] overflow-hidden border-t border-navy/10 bg-infrastructure-panel sm:aspect-[16/10] md:aspect-auto md:min-h-[360px] lg:min-h-[541px] lg:border-l lg:border-t-0">
+            <span className="absolute right-4 top-4 z-10 border border-navy/10 bg-white px-2 py-1 font-sans text-[7px] font-extrabold uppercase leading-none tracking-[0.15em] text-navy sm:right-6 sm:top-5 sm:px-2.5 sm:py-1.5 sm:text-[8px] lg:right-10 lg:top-[26px]">
               {c.badge}
             </span>
 
-            <div className="absolute inset-x-5 bottom-5 top-14 overflow-hidden sm:inset-x-8 lg:bottom-[72px] lg:left-[66px] lg:right-[60px] lg:top-[60px]">
+            <div className="absolute inset-x-4 bottom-20 top-12 overflow-hidden sm:inset-x-8 sm:bottom-24 sm:top-14 lg:bottom-[120px] lg:left-[66px] lg:right-[60px] lg:top-[60px]">
               <img
                 alt={c.visualAlt}
                 className="size-full scale-100 object-cover transition-transform duration-[1200ms] ease-smooth group-hover/visual:scale-105 motion-reduce:transition-none"
@@ -107,36 +108,36 @@ export function ProductionInfrastructure() {
               />
             </div>
 
-            <p className="absolute bottom-5 left-5 z-10 font-display text-[32px] font-normal uppercase leading-[30px] sm:left-8 sm:text-[36px] sm:leading-[32px] lg:bottom-[26px] lg:left-7 lg:text-[42px] lg:leading-[35.7px]">
+            <p className="absolute bottom-4 left-4 z-10 font-display text-[26px] font-normal uppercase leading-[26px] sm:bottom-6 sm:left-8 sm:text-[34px] sm:leading-[32px] lg:bottom-[26px] lg:left-7 lg:text-[42px] lg:leading-[35.7px]">
               <span className="block text-white">{c.overlay[0]}</span>
               <span className="block text-electric">{c.overlay[1]}</span>
             </p>
           </div>
         </Reveal>
 
-        {/* CTA band: 188 tall, 26 below the panel */}
+        {/* CTA band */}
         <Reveal
-          className="mt-6 grid gap-6 border border-l-2 border-electric/15 border-l-electric bg-electric/5 px-6 py-6 sm:px-8 lg:mt-[26px] lg:min-h-[188px] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-10 lg:py-0 lg:pl-[30px] lg:pr-4"
+          className="mt-6 grid gap-5 border border-l-2 border-electric/15 border-l-electric bg-electric/5 px-5 py-6 sm:px-8 sm:py-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-8 lg:mt-[26px] lg:min-h-[188px] lg:gap-10 lg:py-0 lg:pl-[30px] lg:pr-4"
           delay={200}
         >
           <div className="min-w-0">
             <p className="font-sans text-[7px] font-extrabold uppercase leading-none tracking-[0.2em] text-electric sm:text-[8px]">
               {c.cta.eyebrow}
             </p>
-            <h3 className="mt-[10px] font-display text-[28px] font-bold uppercase leading-[0.95] sm:text-[34px] lg:text-[36px] lg:leading-[36px]">
+            <h3 className="mt-2.5 font-display text-[26px] font-bold uppercase leading-[0.95] sm:text-[32px] lg:text-[36px] lg:leading-[36px]">
               {c.cta.title.map((line) => (
                 <span className="block" key={line}>
                   {line}
                 </span>
               ))}
             </h3>
-            <p className="mt-2 max-w-[680px] font-sans text-[10px] leading-[17px] text-steel">
+            <p className="mt-2 max-w-[680px] font-sans text-[10px] leading-[17px] text-steel sm:text-[11px]">
               {c.cta.description}
             </p>
           </div>
 
           <Link
-            className="group inline-flex h-[38px] items-center justify-center gap-2 self-start whitespace-nowrap rounded-[3px] bg-electric px-5 font-sans text-[10px] font-semibold uppercase leading-[14px] tracking-[0.7px] text-white shadow-button transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-navy hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric motion-reduce:transition-none lg:self-center"
+            className="group inline-flex h-[38px] w-full items-center justify-center gap-2 whitespace-nowrap rounded-[3px] bg-electric px-5 font-sans text-[10px] font-semibold uppercase leading-[14px] tracking-[0.7px] text-white shadow-button transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-navy hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric motion-reduce:transition-none md:w-auto md:justify-self-start lg:justify-self-auto"
             to={c.cta.button.to}
           >
             {c.cta.button.label}

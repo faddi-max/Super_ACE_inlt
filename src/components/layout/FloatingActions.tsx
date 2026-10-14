@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactElement } from "react";
+import { useEffect, useState,useRef, type ReactElement } from "react";
 import { ChevronUp, Mail, MessageSquareText } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -86,9 +86,12 @@ function ActionItem({ item, open }: { item: FloatingAction; open: boolean }) {
   );
 }
 
+
+
 export function FloatingActions() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 240);
@@ -97,24 +100,30 @@ export function FloatingActions() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTop = () => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-  };
+  // Close on outside click or Escape (only while open)
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
 
   const count = c.items.length;
 
   return (
     <div
       className="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-2.5 sm:bottom-6 sm:right-6"
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
-      }}
-      onFocus={() => setOpen(true)}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      ref={rootRef}
     >
-      {/* Step 2: icon stack, revealed bottom-up above the arrow */}
       <ul
         aria-hidden={!open}
         className={cn(
@@ -137,7 +146,7 @@ export function FloatingActions() {
         ))}
       </ul>
 
-      {/* Step 1: arrow. Hover opens the stack; click scrolls to top (tap toggles on touch) */}
+      {/* Click toggles the stack; nothing opens on hover or focus */}
       <button
         aria-controls="floating-actions-list"
         aria-expanded={open}
@@ -147,18 +156,15 @@ export function FloatingActions() {
           "bg-electric transition-[opacity,transform] hover:scale-110",
           !scrolled && !open && "opacity-80",
         )}
-        onClick={() => {
-          const touch = window.matchMedia("(hover: none)").matches;
-          if (touch && !open) {
-            setOpen(true);
-            return;
-          }
-          scrollTop();
-        }}
+        onClick={() => setOpen((v) => !v)}
         type="button"
       >
         <ChevronUp
           aria-hidden="true"
+          className={cn(
+            "transition-transform duration-300 ease-smooth motion-reduce:transition-none",
+            open && "rotate-180",
+          )}
           size={18}
           strokeWidth={2.5}
         />
