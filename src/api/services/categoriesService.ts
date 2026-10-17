@@ -80,6 +80,39 @@ export interface ApiCategoryDetailResponse {
   products: ApiProductsResponse;
 }
 
+// ── Image URL helper ───────────────────────────────────────────────────────
+
+/**
+ * Normalise a category/product image URL returned by the API.
+ *
+ * The backend sometimes returns `http://` ngrok URLs which browsers block as
+ * mixed content on HTTPS pages. Vite (dev & preview) has an `/uploads` proxy
+ * that forwards requests to the ngrok host over HTTPS, so we strip the origin
+ * and keep only the `/uploads/…` relative path.
+ *
+ * For any other absolute URL we at least upgrade `http://` → `https://`.
+ */
+export function formatImageUrl(imageUrl?: string | null): string | null {
+  if (!imageUrl || typeof imageUrl !== "string" || !imageUrl.trim()) {
+    return null;
+  }
+
+  const clean = imageUrl.trim();
+
+  // Strip origin for ngrok upload paths → served via Vite dev/preview proxy
+  if (clean.includes("augmented-glucose-platform.ngrok-free.dev/uploads/")) {
+    const idx = clean.indexOf("/uploads/");
+    return clean.substring(idx);
+  }
+
+  // Upgrade plain http:// to https:// for all other absolute URLs
+  if (clean.startsWith("http://")) {
+    return clean.replace("http://", "https://");
+  }
+
+  return clean;
+}
+
 // ── Service ────────────────────────────────────────────────────────────────
 
 export const categoriesService = {
@@ -95,10 +128,32 @@ export const categoriesService = {
   /**
    * Fetch a single category with its products by slug.
    * Returns both the category metadata and a paginated products list.
+   * Image URLs are normalised (http→https / ngrok→proxy path) before returning.
    * Cached for 5 minutes (default TTL).
    */
-  getCategoryDetail(slug: string, page = 1): Promise<ApiCategoryDetailResponse> {
+  async getCategoryDetail(slug: string, page = 1): Promise<ApiCategoryDetailResponse> {
     const endpoint = `/categories/${encodeURIComponent(slug)}${page > 1 ? `?page=${page}` : ""}`;
-    return apiClient.get<ApiCategoryDetailResponse>(endpoint, { raw: true });
+    const raw = await apiClient.get<ApiCategoryDetailResponse>(endpoint, { raw: true });
+
+    // Normalise all image URLs so they load correctly in the browser
+    const normalised: ApiCategoryDetailResponse = {
+      ...raw,
+      category: {
+        ...raw.category,
+        image: formatImageUrl(raw.category.image),
+      },
+      products: {
+        ...raw.products,
+        data: raw.products.data.map((product) => ({
+          ...product,
+          image: formatImageUrl(product.image),
+          gallery: Array.isArray(product.gallery)
+            ? product.gallery.map((g) => formatImageUrl(g) ?? g)
+            : [],
+        })),
+      },
+    };
+
+    return normalised;
   },
 };

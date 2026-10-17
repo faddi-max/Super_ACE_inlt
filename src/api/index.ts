@@ -16,7 +16,7 @@ export type {
   ApiBlogPaginationMeta,
   GetBlogsParams,
 } from "./services/blogsService";
-export { categoriesService } from "./services/categoriesService";
+export { categoriesService, formatImageUrl } from "./services/categoriesService";
 export type {
   ApiCategory,
   ApiCategoryMeta,
