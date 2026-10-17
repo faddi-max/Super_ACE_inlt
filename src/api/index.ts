@@ -17,4 +17,14 @@ export type {
   GetBlogsParams,
 } from "./services/blogsService";
 export { categoriesService } from "./services/categoriesService";
-export type { ApiCategory, ApiCategoryMeta } from "./services/categoriesService";
+export type {
+  ApiCategory,
+  ApiCategoryMeta,
+  ApiCategoryParent,
+  ApiCategoryDetail,
+  ApiCategoryDetailResponse,
+  ApiProduct,
+  ApiProductsResponse,
+  ApiProductsPagination,
+  ApiPaginationLink,
+} from "./services/categoriesService";

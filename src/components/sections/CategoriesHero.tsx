@@ -11,7 +11,17 @@ const delay = (ms: number) => ({ "--hero-delay": `${ms}ms` }) as CSSProperties;
 const buttonBase =
   "group inline-flex h-11 w-full items-center justify-center gap-2 rounded-xs px-6 font-sans text-button font-semibold uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric sm:w-auto";
 
-export function CategoriesHero() {
+type Props = {
+  /** When set, overrides the static eyebrow + title with the live category name */
+  categoryName?: string;
+  /** Parent category name shown in the eyebrow (defaults to "Super Ace International") */
+  parentName?: string;
+};
+
+export function CategoriesHero({ categoryName, parentName }: Props) {
+  const isDynamic = Boolean(categoryName);
+  const eyebrowParent = parentName ?? "Super Ace International";
+
   return (
     <section
       aria-labelledby="categories-hero-title"
@@ -38,14 +48,22 @@ export function CategoriesHero() {
           className="hero-rise flex min-w-0 flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center font-sans text-eyebrow font-extrabold uppercase tracking-[0.18em] text-white sm:tracking-[0.22em]"
           style={delay(150)}
         >
-          {c.eyebrow.map((part, i) => (
-            <span
-              className={cn("accent" in part && part.accent && "text-electric")}
-              key={i}
-            >
-              {part.text}
-            </span>
-          ))}
+          {isDynamic ? (
+            <>
+              <span>{eyebrowParent}</span>
+              <span>/</span>
+              <span className="text-electric">{categoryName}</span>
+            </>
+          ) : (
+            c.eyebrow.map((part, i) => (
+              <span
+                className={cn("accent" in part && part.accent && "text-electric")}
+                key={i}
+              >
+                {part.text}
+              </span>
+            ))
+          )}
         </p>
 
         <h1
@@ -53,7 +71,7 @@ export function CategoriesHero() {
           id="categories-hero-title"
           style={delay(280)}
         >
-          {c.title}
+          {isDynamic ? categoryName : c.title}
         </h1>
 
         <p
@@ -72,9 +90,9 @@ export function CategoriesHero() {
               buttonBase,
               "bg-electric text-white shadow-button transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white hover:text-navy",
             )}
-            to={c.primaryCta.to}
+            to={isDynamic ? "#categories" : c.primaryCta.to}
           >
-            {c.primaryCta.label}
+            {isDynamic ? "View Products" : c.primaryCta.label}
             <ArrowRight
               aria-hidden="true"
               className="transition-transform duration-300 group-hover:translate-x-1"

@@ -8,7 +8,6 @@ import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
 import Process from "@/pages/Process";
 import Categories from "@/pages/Categories";
-import CategoryDetail from "@/pages/CategoryDetail";
 import { Blogs } from "@/pages/Blogs";
 import { SinglePageBlog } from "@/pages/SinglePageBlog";
 import { ProductInfrastructure } from "@/pages/ProductInfrastructure";
@@ -33,10 +32,11 @@ export function AppRouter() {
         <Route path="/capabilities" element={<Capabilities />} />
         <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
 
-        {/* Categories: index + parent + parent/child */}
+        {/* Categories: all three patterns render the same page;
+            useParams inside Categories.tsx drives the dynamic content */}
         <Route path="/categories" element={<Categories />} />
-        <Route path="/categories/:slug" element={<CategoryDetail />} />
-        <Route path="/categories/:slug/:childSlug" element={<CategoryDetail />} />
+        <Route path="/categories/:slug" element={<Categories />} />
+        <Route path="/categories/:slug/:childSlug" element={<Categories />} />
 
         <Route path="/process" element={<Process />} />
         <Route path="/contact" element={<Contact />} />
